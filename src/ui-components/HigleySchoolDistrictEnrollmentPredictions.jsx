@@ -36,7 +36,7 @@ export default function HigleySchoolDistrictEnrollmentPredictions(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="100%"
+        width="500%"
         height="47px"
         gap="unset"
         alignItems="unset"
@@ -45,7 +45,7 @@ export default function HigleySchoolDistrictEnrollmentPredictions(props) {
         bottom="0%"
         left="0%"
         right="0%"
-        padding="0px 0px 0px 0px"
+        padding="60px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Higley School District&#xA;Enrollment Predictions"
         {...getOverrideProps(

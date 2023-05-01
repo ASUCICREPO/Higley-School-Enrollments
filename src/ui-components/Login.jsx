@@ -55,7 +55,10 @@ export default function Login(props) {
       as="form"
       rowGap="15px"
       columnGap="15px"
-      padding="20px"
+      // padding="20px"
+      paddingTop="120px"
+      width="25%"
+      marginLeft="650px"
       onSubmit={async (event) => {
         event.preventDefault();
         const modelFields = {

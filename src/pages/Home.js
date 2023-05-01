@@ -20,7 +20,7 @@ const Home = () => {
           return updatedFields
         }}
       />
-      <Component2 />
+      <Component2 marginLeft="850px" paddingTop="100px" />
       {/* <Login width='100%' /> */}
     </>
 
