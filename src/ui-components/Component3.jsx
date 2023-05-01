@@ -53,6 +53,7 @@ export default function Component3(props) {
         right="8.35%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
+        src="https://th.bing.com/th/id/OIP.NhNa-wXFhBZwfYM9edmdhwHaFS?pid=ImgDet&rs=1"
         {...getOverrideProps(overrides, "Rectangle 44")}
       ></Image>
     </View>

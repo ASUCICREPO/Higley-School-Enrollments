@@ -6,10 +6,14 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Text, View } from "@aws-amplify/ui-react";
 export default function Component10(props) {
   const { overrides, ...rest } = props;
+  const rectangleFiveZeroOnClick = useNavigateAction({ type: "url", url: "/" });
   return (
     <View
       width="566px"
@@ -19,6 +23,8 @@ export default function Component10(props) {
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      margin-top="70px"
+      margin-left="30px"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "Component10")}
       {...rest}
@@ -89,6 +95,9 @@ export default function Component10(props) {
         border="2px SOLID rgba(0,0,0,1)"
         borderRadius="10px"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          rectangleFiveZeroOnClick();
+        }}
         {...getOverrideProps(overrides, "Rectangle 50")}
       ></View>
       <Text

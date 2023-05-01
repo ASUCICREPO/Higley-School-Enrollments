@@ -1,14 +1,32 @@
-import logo from './logo.svg';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom' ;
+
+import Home from './pages/Home';
+import UserDetails from './pages/UserDetails';
 import './App.css';
 import Navbar from './pages/Navbar';
-import { HigleySchoolDistrictEnrollmentPredictions, Component1, Component2 } from './ui-components';
+import ReturnUser from "./pages/ReturnUser";
+import UploadDocs from "./pages/UploadDocs";
+import ReplaceDocs from "./pages/ReplaceDocs";
+import UsePrev from "./pages/UsePrev";
+import { Thankyou } from "./ui-components";
 
 function App() {
   return (
     <>
       <Navbar />
-      <HigleySchoolDistrictEnrollmentPredictions width='100%'/>
-      <Component1/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/user-details" element={<UserDetails />} />
+          <Route path="/returnuser" element={<ReturnUser />} />
+          <Route path="/uploaddocs" element={<UploadDocs />} />
+          <Route path="/replacedocs" element={<ReplaceDocs />} />
+          <Route path="/usepreviousprediction" element={<UsePrev />} />
+          <Route path="/thankyou" element={<Thankyou />} />
+        </Routes>
+      </BrowserRouter>
     </>
 
   );

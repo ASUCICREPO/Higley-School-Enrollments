@@ -17,6 +17,10 @@ export default function Component2(props) {
     type: "url",
     url: component2,
   });
+  const nounarrowTwoZeroFiveZeroTwoZeroOneOneOnClick = useNavigateAction({
+    type: "url",
+    url: "/user-details",
+  });
   return (
     <View
       width="120px"
@@ -70,6 +74,9 @@ export default function Component2(props) {
         left="0%"
         right="0%"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          nounarrowTwoZeroFiveZeroTwoZeroOneOneOnClick();
+        }}
         {...getOverrideProps(overrides, "noun-arrow-2050201 1")}
       >
         <Icon
