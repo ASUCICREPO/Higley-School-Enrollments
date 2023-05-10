@@ -6,7 +6,8 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { HigleySchoolDistrictProps } from "./HigleySchoolDistrict";
 import { Component23Props } from "./Component23";
 import { Component24Props } from "./Component24";
 import { Component25Props } from "./Component25";
@@ -23,7 +24,7 @@ export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes
 export declare type ReplacedocsOverridesProps = {
     Replacedocs?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 36"?: PrimitiveOverrideProps<ViewProps>;
-    "Higley School District"?: PrimitiveOverrideProps<TextProps>;
+    "Higley School District"?: HigleySchoolDistrictProps;
     "Component 23"?: Component23Props;
     "Component 24"?: Component24Props;
     "Component 25"?: Component25Props;
@@ -36,6 +37,9 @@ export declare type ReplacedocsOverridesProps = {
     "Component 32"?: Component32Props;
     "Component 33"?: Component33Props;
     "Component 34"?: Component34Props;
+    "Replace Raw Data"?: PrimitiveOverrideProps<TextProps>;
+    "Rectangle 48"?: PrimitiveOverrideProps<IconProps>;
+    Continue?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type ReplacedocsProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: ReplacedocsOverridesProps | undefined | null;

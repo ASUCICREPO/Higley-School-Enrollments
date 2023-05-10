@@ -1,29 +1,16 @@
 import React from "react";
-import { HigleySchoolDistrictEnrollmentPredictions, Login, Component2 } from '../ui-components';
+import { HigleySchoolDistrictEnrollmentPredictions, HigleyLogin, Component2 } from '../ui-components';
 // import HigleySchoolDistrictEnrollmentPredictions from "../ui-components";
 
 const Home = () => {
   return (
     <>
-      <HigleySchoolDistrictEnrollmentPredictions/>
-      <Login width='30%'
-        onSubmit={(fields) => {
-          // Example function to trim all string inputs
-          const updatedFields = {}
-          Object.keys(fields).forEach(key => {
-            if (typeof fields[key] === 'string') {
-              updatedFields[key] = fields[key].trim()
-            } else {
-              updatedFields[key] = fields[key]
-            }
-          })
-          return updatedFields
-        }}
-      />
-      <Component2 marginLeft="850px" paddingTop="100px" />
+      <HigleySchoolDistrictEnrollmentPredictions margin="auto"  marginTop="100px"/>
       {/* <Login width='100%' /> */}
+      <HigleyLogin width='25%' margin="auto" marginTop="50px"/>
+      <Component2 margin="auto" marginTop="50px"/>
+      
     </>
-
   );
 };
 

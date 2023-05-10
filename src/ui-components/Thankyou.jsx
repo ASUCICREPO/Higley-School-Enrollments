@@ -13,7 +13,7 @@ export default function Thankyou(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="1440px"
+      width="100%"
       height="1024px"
       display="block"
       gap="unset"
@@ -21,22 +21,23 @@ export default function Thankyou(props) {
       justifyContent="unset"
       overflow="hidden"
       position="relative"
+      // margin="auto"
+      margin="60px auto auto auto"
       padding="0px 0px 0px 0px"
-      margin-top="60px"
       backgroundColor="rgba(255,255,255,1)"
       {...getOverrideProps(overrides, "Thankyou")}
       {...rest}
     >
       <Component10
-        width="566px"
+        width="100%"
         height="282px"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="364px"
-        left="437px"
+        top="200px"
+        margin="auto"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Component 10")}
       ></Component10>

@@ -6,13 +6,14 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ViewProps } from "@aws-amplify/ui-react";
+import { HigleySchoolDistrictProps } from "./HigleySchoolDistrict";
 import { Component9Props } from "./Component9";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type UsepreviouspredictionOverridesProps = {
     Usepreviousprediction?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 36"?: PrimitiveOverrideProps<ViewProps>;
-    "Higley School District"?: PrimitiveOverrideProps<TextProps>;
+    "Higley School District"?: HigleySchoolDistrictProps;
     "Component 9"?: Component9Props;
 } & EscapeHatchProps;
 export declare type UsepreviouspredictionProps = React.PropsWithChildren<Partial<ViewProps> & {

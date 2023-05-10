@@ -7,7 +7,8 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Text, View } from "@aws-amplify/ui-react";
+import { View } from "@aws-amplify/ui-react";
+import HigleySchoolDistrict from "./HigleySchoolDistrict";
 import Component9 from "./Component9";
 export default function Usepreviousprediction(props) {
   const { overrides, ...rest } = props;
@@ -40,28 +41,19 @@ export default function Usepreviousprediction(props) {
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Rectangle 36")}
       ></View>
-      <Text
-        fontFamily="Inter"
-        fontSize="32px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="38.727272033691406px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        width="366px"
+      <HigleySchoolDistrict
+        width="693px"
         height="47px"
+        display="block"
         gap="unset"
         alignItems="unset"
+        justifyContent="unset"
         position="absolute"
         top="26px"
         left="89px"
         padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Higley School District"
         {...getOverrideProps(overrides, "Higley School District")}
-      ></Text>
+      ></HigleySchoolDistrict>
       <Component9
         width="505px"
         height="284px"

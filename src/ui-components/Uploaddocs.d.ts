@@ -6,7 +6,8 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { IconProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { HigleySchoolDistrictProps } from "./HigleySchoolDistrict";
 import { Component11Props } from "./Component11";
 import { Component12Props } from "./Component12";
 import { Component13Props } from "./Component13";
@@ -23,7 +24,7 @@ export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes
 export declare type UploaddocsOverridesProps = {
     Uploaddocs?: PrimitiveOverrideProps<ViewProps>;
     "Rectangle 36"?: PrimitiveOverrideProps<ViewProps>;
-    "Higley School District"?: PrimitiveOverrideProps<TextProps>;
+    "Higley School District"?: HigleySchoolDistrictProps;
     "Component 11"?: Component11Props;
     "Component 12"?: Component12Props;
     "Component 13"?: Component13Props;
@@ -36,6 +37,9 @@ export declare type UploaddocsOverridesProps = {
     "Component 20"?: Component20Props;
     "Component 21"?: Component21Props;
     "Component 22"?: Component22Props;
+    "Upload Raw Data"?: PrimitiveOverrideProps<TextProps>;
+    "Rectangle 48"?: PrimitiveOverrideProps<IconProps>;
+    Continue?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
 export declare type UploaddocsProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: UploaddocsOverridesProps | undefined | null;

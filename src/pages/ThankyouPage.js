@@ -5,7 +5,8 @@ import { Thankyou, Component10 } from '../ui-components';
 const ThankyouPage = () => {
     return(
         <>
-            <Component10 width='100%' />
+            <Component10/>
+
         </>
     )
 

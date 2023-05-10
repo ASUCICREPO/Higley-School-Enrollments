@@ -5,32 +5,23 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps, PasswordFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-export declare type ValidationResponse = {
-    hasError: boolean;
-    errorMessage?: string;
-};
-export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type LoginInputValues = {
-    Field0?: string;
-    Field1?: string;
-};
-export declare type LoginValidationValues = {
-    Field0?: ValidationFunction<string>;
-    Field1?: ValidationFunction<string>;
-};
+import { Rectangle35Props } from "./Rectangle35";
+import { HigleySchoolDistrictProps } from "./HigleySchoolDistrict";
+import { HigleySchoolDistrictEnrollmentPredictionsProps } from "./HigleySchoolDistrictEnrollmentPredictions";
+import { Component1Props } from "./Component1";
+import { Component2Props } from "./Component2";
+import { ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type LoginOverridesProps = {
-    LoginGrid?: PrimitiveOverrideProps<GridProps>;
-    Field0?: PrimitiveOverrideProps<TextFieldProps>;
-    Field1?: PrimitiveOverrideProps<PasswordFieldProps>;
+    Login?: PrimitiveOverrideProps<ViewProps>;
+    "Rectangle 35"?: Rectangle35Props;
+    "Higley School District"?: HigleySchoolDistrictProps;
+    "Higley School District Enrollment Predictions"?: HigleySchoolDistrictEnrollmentPredictionsProps;
+    "Component 1"?: Component1Props;
+    "Component 2"?: Component2Props;
 } & EscapeHatchProps;
-export declare type LoginProps = React.PropsWithChildren<{
+export declare type LoginProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: LoginOverridesProps | undefined | null;
-} & {
-    onSubmit: (fields: LoginInputValues) => void;
-    onChange?: (fields: LoginInputValues) => LoginInputValues;
-    onValidate?: LoginValidationValues;
-} & React.CSSProperties>;
+}>;
 export default function Login(props: LoginProps): React.ReactElement;

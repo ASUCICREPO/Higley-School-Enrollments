@@ -6,10 +6,17 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Text, View } from "@aws-amplify/ui-react";
 export default function Component9(props) {
   const { overrides, ...rest } = props;
+  const rectangleFourNineOnClick = useNavigateAction({
+    type: "url",
+    url: "/replacedocs",
+  });
   return (
     <View
       width="505px"
@@ -130,6 +137,9 @@ export default function Component9(props) {
         border="2px SOLID rgba(0,0,0,1)"
         borderRadius="10px"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          rectangleFourNineOnClick();
+        }}
         {...getOverrideProps(overrides, "Rectangle 49")}
       ></View>
       <Text
