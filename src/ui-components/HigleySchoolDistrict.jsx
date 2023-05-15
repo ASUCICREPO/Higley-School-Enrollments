@@ -12,7 +12,7 @@ export default function HigleySchoolDistrict(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="366px"
+      width="100%"
       height="47px"
       display="block"
       gap="unset"
@@ -33,7 +33,7 @@ export default function HigleySchoolDistrict(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="366px"
+        width="100%"
         height="47px"
         gap="unset"
         alignItems="unset"
@@ -44,7 +44,7 @@ export default function HigleySchoolDistrict(props) {
         right="0%"
         padding="30px 0px 0px 10px"
         whiteSpace="pre-wrap"
-        children="Higley School District"
+        children="Higley School District Enrollment Prediction"
         {...getOverrideProps(overrides, "Higley School District")}
       ></Text>
     </View>

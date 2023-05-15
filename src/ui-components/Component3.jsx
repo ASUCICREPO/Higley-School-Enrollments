@@ -12,20 +12,24 @@ export default function Component3(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="599px"
-      height="389px"
+      width="90%"
+      height="500px"
       display="block"
       gap="unset"
-      alignItems="unset"
+      alignItems="center"
       justifyContent="unset"
       position="relative"
+      // right="50px"
+      left="50%"
+      top="50%"
+      transform="translate(-50%, -50%)"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "Component3")}
       {...rest}
     >
       <View
-        width="549px"
-        height="339px"
+        width="91.65%"
+        height="500px"
         display="block"
         gap="unset"
         alignItems="unset"

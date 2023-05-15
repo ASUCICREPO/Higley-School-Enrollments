@@ -6,9 +6,15 @@ const UserDetails = () => {
     return(
         <>
             {/* <Firsttimeuser /> */}
-            <div style={{display: 'flex', width: '100%', marginTop: '60px'}}>
-                <Component5 />
-                <Component3 />
+            <div style={{display: 'flex', width: '100%', marginTop: '100px'}}>
+                <div style={{width: '50%'}}>
+                    <Component5 />
+                    <Component4 />
+                </div>
+                <div style={{width: '50%'}}>
+                    <Component3 />
+                </div>
+                
             </div>
         </>
     )

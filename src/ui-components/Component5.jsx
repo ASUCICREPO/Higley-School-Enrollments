@@ -12,18 +12,21 @@ export default function Component5(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="724px"
-      height="518px"
+      width="100%"
+      height="200px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      left="50%"
+      top="50%"
+      transform="translate(-50%, -50%)"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "Component5")}
       {...rest}
     >
-      <Text
+      {/* <Text
         fontFamily="Inter"
         fontSize="32px"
         fontWeight="400"
@@ -49,7 +52,7 @@ export default function Component5(props) {
           overrides,
           "Steps: Upload raw data Trigger model Upload prediction data Link to dashboard"
         )}
-      ></Text>
+      ></Text> */}
       <Text
         fontFamily="Inter"
         fontSize="40px"
@@ -60,14 +63,14 @@ export default function Component5(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="724px"
+        width="100%"
         height="124px"
         gap="unset"
-        alignItems="unset"
+        alignItems="center"
         position="absolute"
         top="0%"
         bottom="76.06%"
-        left="0%"
+        left="15%"
         right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
