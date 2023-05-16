@@ -49,7 +49,7 @@ export default function Component4(props) {
           fontWeight="400"
           color="rgba(0,0,0,1)"
           lineHeight="24.204544067382812px"
-          textAlign="left"
+          textAlign="center"
           display="block"
           direction="column"
           justifyContent="unset"

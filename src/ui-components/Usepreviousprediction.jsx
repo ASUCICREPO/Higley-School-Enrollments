@@ -62,8 +62,10 @@ export default function Usepreviousprediction(props) {
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="360px"
-        left="467px"
+        // top="360px"
+        // left="467px"
+        top="200px"
+        margin="auto"
         padding="0px 0px 0px 0px"
         {...getOverrideProps(overrides, "Component 9")}
       ></Component9>

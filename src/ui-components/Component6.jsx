@@ -12,13 +12,16 @@ export default function Component6(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="761px"
-      height="518px"
+      width="100%"
+      height="200px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      left="50%"
+      top="50%"
+      transform="translate(-50%, -50%)"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "Component6")}
       {...rest}
@@ -33,14 +36,14 @@ export default function Component6(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="761px"
+        width="100%"
         height="124px"
         gap="unset"
-        alignItems="unset"
+        alignItems="center"
         position="absolute"
         top="0%"
         bottom="76.06%"
-        left="0%"
+        left="10%"
         right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
@@ -50,7 +53,7 @@ export default function Component6(props) {
           "Welcome back to Enrollment Prediction!"
         )}
       ></Text>
-      <Text
+      {/* <Text
         fontFamily="Inter"
         fontSize="32px"
         fontWeight="400"
@@ -76,7 +79,7 @@ export default function Component6(props) {
           overrides,
           "Steps: Upload new data Trigger model Upload prediction data Link to dashboard"
         )}
-      ></Text>
+      ></Text> */}
     </View>
   );
 }
