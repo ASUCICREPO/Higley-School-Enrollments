@@ -1,8 +1,7 @@
 import React from "react";
 // import { Firsttimeuser, Rectangle35 } from "../ui-components";
 import { Component11, Component12, Component13, Component14, Component15, Component16, Component17, Component18, Component19, Component20, Component21, Component22, Uploaddocs } from '../ui-components';
-import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, Enrollmentcountscsv, Housingpopulationcsv, Landdevelopmentscsv, Personaddresshistorycsv, Studentactivitiescsv, Studentattendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, Studentenrollmentscsv, Schoollunchcsv } from '../ui-components';
-import SchoolLunchcsv from "../ui-components/Schoollunchcsv";
+import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, EnrollmentCountscsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv } from '../ui-components';
 
 const UploadDocs = () => {
     return(
@@ -11,31 +10,29 @@ const UploadDocs = () => {
                 <div style={{width: '50%'}}>
                     <BirthrateGDPUScsv />
                     <Component41 />
-                    <Enrollmentcountscsv />
+                    <EnrollmentCountscsv />
                     <Component41 />
                     <EnrollmentGradescsv />
                     <Component41 />
-                    <Housingpopulationcsv />
+                    <HousingPopulationcsv />
                     <Component41 />
-                    <Landdevelopmentscsv />
+                    <LandDevelopmentscsv />
                     <Component41 />
                     <SchoolLunchcsv />
                     <Component41 />
-                    <Schoollunchcsv />
-                    <Component41 />
                 </div>
                 <div style={{width: '50%'}}>
-                    <Personaddresshistorycsv />
+                    <PersonAddressHistorycsv />
                     <Component41 />
-                    <Studentactivitiescsv />
+                    <StudentActivitiescsv />
                     <Component41 />
-                    <Studentattendancecsv />
+                    <StudentAttendancecsv />
                     <Component41 />
                     <StudentBenchmarkscsv />
                     <Component41 />
                     <StudentDemographicscsv />
                     <Component41 />
-                    <Studentenrollmentscsv />
+                    <StudentEnrollmentscsv />
                     <Component41 />
 
                 </div>
