@@ -8,33 +8,33 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Text, View } from "@aws-amplify/ui-react";
-export default function Studentbenchmarkscsv(props) {
+export default function StudentBenchmarkscsv(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="286.46px"
-      height="24.6px"
+      width="436px"
+      height="48.23px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Studentbenchmarkscsv")}
+      {...getOverrideProps(overrides, "StudentBenchmarkscsv")}
       {...rest}
     >
       <Text
         fontFamily="Inter"
-        fontSize="20px"
-        fontWeight="400"
+        fontSize="24px"
+        fontWeight="700"
         color="rgba(0,0,0,1)"
-        lineHeight="24.204544067382812px"
+        lineHeight="29.045454025268555px"
         textAlign="left"
         display="block"
         direction="column"
         justifyContent="unset"
-        width="286.46px"
-        height="24.6px"
+        width="436px"
+        height="48.23px"
         gap="unset"
         alignItems="unset"
         position="absolute"
@@ -44,8 +44,8 @@ export default function Studentbenchmarkscsv(props) {
         right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="student_benchmarks.csv"
-        {...getOverrideProps(overrides, "student_benchmarks.csv")}
+        children="Student Benchmarks (.csv) *"
+        {...getOverrideProps(overrides, "Student Benchmarks (.csv) *")}
       ></Text>
     </View>
   );

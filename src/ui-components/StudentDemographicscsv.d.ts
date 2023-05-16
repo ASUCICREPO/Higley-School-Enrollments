@@ -8,12 +8,11 @@ import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { TextProps, ViewProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type StudentdemographicscsvOverridesProps = {
-    Studentdemographicscsv?: PrimitiveOverrideProps<ViewProps>;
-    "student_demographics.csv"?: PrimitiveOverrideProps<TextProps>;
+export declare type StudentDemographicscsvOverridesProps = {
+    StudentDemographicscsv?: PrimitiveOverrideProps<ViewProps>;
+    "Student Demographics (.csv) *"?: PrimitiveOverrideProps<TextProps>;
 } & EscapeHatchProps;
-export declare type StudentdemographicscsvProps = React.PropsWithChildren<Partial<ViewProps> & {
-    overrides?: StudentdemographicscsvOverridesProps | undefined | null;
+export declare type StudentDemographicscsvProps = React.PropsWithChildren<Partial<ViewProps> & {
+    overrides?: StudentDemographicscsvOverridesProps | undefined | null;
 }>;
-export default function Studentdemographicscsv(props: StudentdemographicscsvProps): React.ReactElement;
-ent;
+export default function StudentDemographicscsv(props: StudentDemographicscsvProps): React.ReactElement;
