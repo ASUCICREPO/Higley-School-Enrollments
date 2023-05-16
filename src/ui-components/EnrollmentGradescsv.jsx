@@ -50,5 +50,3 @@ export default function Enrollmentgradescsv(props) {
     </View>
   );
 }
- );
-}

@@ -50,6 +50,3 @@ export default function Studentdemographicscsv(props) {
     </View>
   );
 }
- </View>
-  );
-}

@@ -237,7 +237,7 @@ export default function Uploaddocs(props) {
         alignItems="unset"
         position="absolute"
         top="108px"
-        left="calc(50% - 146.5px - 174.5px)"
+        left="calc(50% - 146.5px - -0.5px)"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Upload Raw Data"

@@ -50,5 +50,3 @@ export default function Studentbenchmarkscsv(props) {
     </View>
   );
 }
- );
-}

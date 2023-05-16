@@ -50,5 +50,3 @@ export default function Birthrategdpuscsv(props) {
     </View>
   );
 }
- );
-}
