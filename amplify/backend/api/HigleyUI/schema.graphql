@@ -1,0 +1,5 @@
+type LoginInfo @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Username: String!
+  Password: String!
+}

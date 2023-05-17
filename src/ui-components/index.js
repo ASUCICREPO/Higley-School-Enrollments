@@ -83,3 +83,5 @@ export { default as Component22 } from "./Component22";
 export { default as Component20 } from "./Component20";
 export { default as studioTheme } from "./studioTheme";
 export { default as HigleyLogin } from "./HigleyLogin";
+export { default as LoginInfoCreateForm } from "./LoginInfoCreateForm";
+export { default as LoginInfoUpdateForm } from "./LoginInfoUpdateForm";
