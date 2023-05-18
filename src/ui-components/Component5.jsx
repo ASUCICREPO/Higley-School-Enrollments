@@ -70,7 +70,7 @@ export default function Component5(props) {
         position="absolute"
         top="0%"
         bottom="76.06%"
-        left="15%"
+        left="10%"
         right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"

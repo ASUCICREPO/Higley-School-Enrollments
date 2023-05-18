@@ -4,35 +4,35 @@ import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, EnrollmentCountscs
 const UploadDocs = () => {
     return(
         <>
-            <h2 style={{width: '100%', textAlign: 'center', marginTop: '60px'}}>Upload Raw Data</h2>
-            <div style={{display: 'flex', width: '100%', marginTop: '60px'}}>
+            <h2 style={{width: '100%', textAlign: 'center', marginTop: '60px', paddingRight: '50px'}}>Upload Raw Data</h2>
+            <div style={{display: 'flex', width: '100%'}}>
                 <div style={{width: '50%'}}>
-                    <BirthrateGDPUScsv />
-                    <Component41 />
-                    <EnrollmentCountscsv />
-                    <Component41 />
-                    <EnrollmentGradescsv />
-                    <Component41 />
-                    <HousingPopulationcsv />
-                    <Component41 />
-                    <LandDevelopmentscsv />
-                    <Component41 />
-                    <SchoolLunchcsv />
-                    <Component41 />
+                    <BirthrateGDPUScsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <EnrollmentCountscsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <EnrollmentGradescsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <HousingPopulationcsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <LandDevelopmentscsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <SchoolLunchcsv margin="auto" />
+                    <Component41 marginLeft="260px" />
                 </div>
                 <div style={{width: '50%'}}>
-                    <PersonAddressHistorycsv />
-                    <Component41 />
-                    <StudentActivitiescsv />
-                    <Component41 />
-                    <StudentAttendancecsv />
-                    <Component41 />
-                    <StudentBenchmarkscsv />
-                    <Component41 />
-                    <StudentDemographicscsv />
-                    <Component41 />
-                    <StudentEnrollmentscsv />
-                    <Component41 />
+                    <PersonAddressHistorycsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <StudentActivitiescsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <StudentAttendancecsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <StudentBenchmarkscsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <StudentDemographicscsv margin="auto" />
+                    <Component41 marginLeft="260px" />
+                    <StudentEnrollmentscsv margin="auto"/>
+                    <Component41 marginLeft="260px" />
                 </div>
             </div>
             <Component39 width="100%"/>

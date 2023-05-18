@@ -24,6 +24,7 @@ export default function Component39(props) {
       justifyContent="unset"
       position="relative"
       top="20px"
+      right="60px"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "Component39")}
       {...rest}

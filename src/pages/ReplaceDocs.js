@@ -9,101 +9,101 @@ const ReplaceDocs = () => {
             <div style={{display: 'flex', width: '100%', marginTop: '60px'}}>
                 <div style={{width: '50%'}}>
                     <div>
-                        <BirthrateGDPUScsv />
+                        <BirthrateGDPUScsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
-                        <Component41 />
-                        <Birthrategdpus1csv />
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
+                        <Component41/>
+                        <Birthrategdpus1csv marginLeft='50px'/>
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <EnrollmentCountscsv />
+                        <EnrollmentCountscsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Enrollmentcounts1csv />
+                        <Enrollmentcounts1csv marginLeft='50px' />
+                        <Nounx21478471  />
+                    </div>
+                    <div>
+                        <EnrollmentGradescsv margin="auto"  />
+                    </div>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
+                        <Component41 />
+                        <Enrollmentgrades1csv marginLeft='50px'  />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <EnrollmentGradescsv />
+                        <HousingPopulationcsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Enrollmentgrades1csv />
+                        <Housingpopulation1csv marginLeft='50px'  />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <HousingPopulationcsv />
+                        <LandDevelopmentscsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Housingpopulation1csv />
+                        <Landdevelopments1csv marginLeft='50px'  />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <LandDevelopmentscsv />
+                        <SchoolLunchcsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Landdevelopments1csv />
-                        <Nounx21478471 />
-                    </div>
-                    <div>
-                        <SchoolLunchcsv />
-                    </div>
-                    <div style={{display: 'flex', width: '50%'}}>
-                        <Component41 />
-                        <Schoollunch1csv />
+                        <Schoollunch1csv marginLeft='50px'  />
                         <Nounx21478471 />
                     </div>
                 </div>
                 <div style={{width: '50%'}}>
                     <div>
-                        <PersonAddressHistorycsv />
+                        <PersonAddressHistorycsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Personaddresshistory1csv />
+                        <Personaddresshistory1csv marginLeft='50px' />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <StudentActivitiescsv />
+                        <StudentActivitiescsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Studentactivities1csv />
+                        <Studentactivities1csv marginLeft='50px' />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <StudentAttendancecsv />
+                        <StudentAttendancecsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Studentattendance1csv />
+                        <Studentattendance1csv marginLeft='50px' />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <StudentBenchmarkscsv />
+                        <StudentBenchmarkscsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Studentbenchmarks1csv />
+                        <Studentbenchmarks1csv marginLeft='50px' />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <StudentDemographicscsv />
+                        <StudentDemographicscsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Studentdemographics1csv />
+                        <Studentdemographics1csv marginLeft='50px' />
                         <Nounx21478471 />
                     </div>
                     <div>
-                        <StudentEnrollmentscsv />
+                        <StudentEnrollmentscsv margin="auto"  />
                     </div>
-                    <div style={{display: 'flex', width: '50%'}}>
+                    <div style={{display: 'flex', width: '60%', margin: 'auto'}}>
                         <Component41 />
-                        <Studentenrollments1csv />
+                        <Studentenrollments1csv marginLeft='50px' />
                         <Nounx21478471 />
                     </div>
                 </div>
