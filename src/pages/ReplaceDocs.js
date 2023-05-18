@@ -6,7 +6,7 @@ const ReplaceDocs = () => {
     return(
         <>
             <h2 style={{width: '100%', textAlign: 'center', marginTop: '60px'}}>Replace Raw Data</h2>
-            <div style={{display: 'flex', width: '100%', marginTop: '60px'}}>
+            <div style={{display: 'flex', width: '100%'}}>
                 <div style={{width: '50%'}}>
                     <div>
                         <BirthrateGDPUScsv margin="auto"  />
