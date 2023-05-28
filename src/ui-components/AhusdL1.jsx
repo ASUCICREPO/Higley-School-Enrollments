@@ -12,8 +12,8 @@ export default function AhusdL1(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="191px"
-      height="100px"
+      width="180px"
+      height="140px"
       display="block"
       gap="unset"
       alignItems="unset"
