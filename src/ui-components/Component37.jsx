@@ -19,7 +19,9 @@ export default function Component37(props) {
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      borderRadius="10px"
       padding="0px 0px 0px 0px"
+      backgroundColor="rgba(0,39,122,1)"
       {...getOverrideProps(overrides, "Component37")}
       {...rest}
     >
@@ -44,7 +46,7 @@ export default function Component37(props) {
         fontFamily="Inter"
         fontSize="20px"
         fontWeight="400"
-        color="rgba(0,0,0,1)"
+        color="rgba(255,255,255,1)"
         lineHeight="24.204544067382812px"
         textAlign="left"
         display="block"

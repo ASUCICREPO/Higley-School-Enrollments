@@ -25,10 +25,10 @@ export default function Studentenrollments1csv(props) {
     >
       <Text
         fontFamily="Inter"
-        fontSize="20px"
+        fontSize="16px"
         fontWeight="400"
         color="rgba(0,0,0,1)"
-        lineHeight="24.204544067382812px"
+        lineHeight="19.363636016845703px"
         textAlign="left"
         display="block"
         direction="column"

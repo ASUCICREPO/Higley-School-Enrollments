@@ -7,46 +7,39 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Text, View } from "@aws-amplify/ui-react";
-export default function Landdevelopments1csv(props) {
+import { Image, View } from "@aws-amplify/ui-react";
+export default function ClassImage(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="247.37px"
-      height="24.6px"
+      width="1440px"
+      height="584px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "Landdevelopments1csv")}
+      {...getOverrideProps(overrides, "ClassImage")}
       {...rest}
     >
-      <Text
-        fontFamily="Inter"
-        fontSize="16px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="19.363636016845703px"
-        textAlign="left"
+      <Image
+        width="100%"
+        height="100%"
         display="block"
-        direction="column"
-        justifyContent="unset"
-        width="247.37px"
-        height="24.6px"
         gap="unset"
         alignItems="unset"
+        justifyContent="unset"
         position="absolute"
-        top="-24.39%"
-        bottom="24.39%"
+        top="0%"
+        bottom="0%"
         left="0%"
         right="0%"
         padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="land_developments.csv"
-        {...getOverrideProps(overrides, "land_developments.csv")}
-      ></Text>
+        objectFit="cover"
+        src="https://feweek.co.uk/wp-content/uploads/2020/11/empty-classroom-school-college-feat.jpg"
+        {...getOverrideProps(overrides, "classimagepic")}
+      ></Image>
     </View>
   );
 }
