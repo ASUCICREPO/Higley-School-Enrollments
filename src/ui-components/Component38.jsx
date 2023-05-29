@@ -20,6 +20,7 @@ export default function Component38(props) {
       justifyContent="unset"
       position="relative"
       borderRadius="10px"
+      margin="auto"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(0,39,122,1)"
       {...getOverrideProps(overrides, "Component38")}
@@ -36,7 +37,7 @@ export default function Component38(props) {
         top="0%"
         bottom="0%"
         left="0%"
-        right="3.23%"
+        right="0%"
         border="2px SOLID rgba(0,0,0,1)"
         borderRadius="10px"
         padding="0px 0px 0px 0px"

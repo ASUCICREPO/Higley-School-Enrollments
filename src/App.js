@@ -10,7 +10,7 @@ import ReturnUser from "./pages/ReturnUser";
 import UploadDocs from "./pages/UploadDocs";
 import ReplaceDocs from "./pages/ReplaceDocs";
 import UsePrev from "./pages/UsePrev";
-import { Thankyou } from "./ui-components";
+import ThankyouPage from "./pages/ThankyouPage";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="/uploaddocs" element={<UploadDocs />} />
           <Route path="/replacedocs" element={<ReplaceDocs />} />
           <Route path="/usepreviousprediction" element={<UsePrev />} />
-          <Route path="/thankyou" element={<Thankyou />} />
+          <Route path="/thankyou" element={<ThankyouPage />} />
         </Routes>
       </BrowserRouter>
     </>

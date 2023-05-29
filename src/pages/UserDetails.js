@@ -1,8 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-// import { Firsttimeuser, Rectangle35 } from "../ui-components";
-import { Component3, Component4, Component5 } from '../ui-components';
+import { ClassImage, Component3, Component4, Component5, Component54, FirstTimeuser1 } from '../ui-components';
 
 const UserDetails = () => {
     const navigate = useNavigate();
@@ -11,8 +10,13 @@ const UserDetails = () => {
     }
     return(
         <>
-            {/* <Firsttimeuser /> */}
-            <div style={{display: 'flex', width: '100%', marginTop: '100px'}}>
+            {/* <FirstTimeuser1 /> */}
+            {/* <Component5 /> */}
+            <h1 align='center' fontFamily='Inter'>Welcome to Enrollment Prediction</h1>
+            <ClassImage width='100%' />
+            <Component54 marginTop='20px' onClick={handleClick} />
+
+            {/* <div style={{display: 'flex', width: '100%', marginTop: '100px'}}>
                 <div style={{width: '50%'}}>
                     <Component5 />
                     <Component4 onClick={handleClick}/>
@@ -21,7 +25,7 @@ const UserDetails = () => {
                     <Component3 />
                 </div>
                 
-            </div>
+            </div> */}
         </>
     )
 
