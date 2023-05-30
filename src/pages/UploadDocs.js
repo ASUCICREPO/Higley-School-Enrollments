@@ -1,16 +1,20 @@
-import React from "react";
-var AWS = require("aws-sdk");
+import React, { useState } from "react";
+import S3 from 'react-aws-s3';
+
+// var AWS = require("aws-sdk");
 import "./css/UploadDocs.css";
 import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, EnrollmentCountscsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv, Component39, Uploadfiles } from '../ui-components';
 
+window.Buffer = window.Buffer || require("buffer").Buffer;
 const UploadDocs = () => {
-    const [file, setFile] = React.useState();
+    const [selectedFile, setSelectedFile] = useState(null);
 
     const config = {
-        bucketName: S3_BUCKET,
-        region: REGION,
-        accessKeyId: ACCESS_KEY,
-        secretAccessKey: SECRET_ACCESS_KEY,
+        bucketName: "higleysampleimput",
+        region: process.env.REACT_APP_REGION,
+        accessKeyId: process.env.REACT_APP_ACCESS_ID,
+        secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
+        s3Url: 'https://higleysampleimput.s3.amazonaws.com', /* without the suffix zone added */
     };
 
 
