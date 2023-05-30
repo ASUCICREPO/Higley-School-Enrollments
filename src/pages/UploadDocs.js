@@ -6,65 +6,86 @@ import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, EnrollmentCountscs
 const UploadDocs = () => {
     const [file, setFile] = React.useState();
 
-    var bucket = new AWS.S3({
-        accessKeyId: process.env.REACT_APP_ACCESS_ID,
-        secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        // sessionToken: "SESSION_TOKEN", // optional you can remove if you don't want pass
-        region: 'us-east-1'
-      });
+    const config = {
+        bucketName: S3_BUCKET,
+        region: REGION,
+        accessKeyId: ACCESS_KEY,
+        secretAccessKey: SECRET_ACCESS_KEY,
+    };
 
 
-    function uploadFile(event, fileName, file, folderName) {
-        const params = {
-          Bucket: "BUCKET_NAME",
-          Key: folderName + fileName,
-          Body: file,
-          ContentType: file.type
-        };
+    const handleFileInput = (e) => {
+        setSelectedFile(e.target.files[0]);
+    }
     
-        this.bucket.upload(params, (err, data) => {
-          if (err) {
-            console.log('There was an error uploading your file: ', err);
-            return false;
-          }
-          console.log('Successfully uploaded file.', data);
-          return true;
-        });
+    const uploadFile = async (file) => {
+        const ReactS3Client = new S3(config);
+        ReactS3Client
+            .uploadFile(file, file.name)
+            .then(data => console.log(data.location))
+            .catch(err => console.error(err))
     }
 
-    function uploadSampleFile (event) {
-        var progressDiv = document.getElementById("myProgress");
-        progressDiv.style.display="block";
-        var progressBar = document.getElementById("myBar");
-        file = document.getElementById("myFile").files[0];
-        folderName = "Document/";
-        uniqueFileName = 'SampleFile'; 
-        let fileUpload = {
-          id: "",
-          name: file.name,
-          nameUpload: uniqueFileName,
-          size: file.size,
-          type: "",
-          timeReference: 'Unknown',
-          progressStatus: 0,
-          displayName: file.name,
-          status: 'Uploading..',
-        }
-        uploadfile(uniqueFileName, file, folderName)
-          .on('httpUploadProgress', function(progress) {
-            let progressPercentage = Math.round(progress.loaded / progress.total * 100);
-            console.log(progressPercentage);
-            progressBar.style.width = progressPercentage + "%";
-            if (progressPercentage < 100) {
-              fileUpload.progressStatus = progressPercentage;
+
+    // var bucket = new AWS.S3({
+    //     accessKeyId: process.env.REACT_APP_ACCESS_ID,
+    //     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
+    //     // sessionToken: "SESSION_TOKEN", // optional you can remove if you don't want pass
+    //     region: 'us-east-1'
+    //   });
+
+
+    // function uploadFile(event, fileName, file, folderName) {
+    //     const params = {
+    //       Bucket: "BUCKET_NAME",
+    //       Key: folderName + fileName,
+    //       Body: file,
+    //       ContentType: file.type
+    //     };
+    
+    //     this.bucket.upload(params, (err, data) => {
+    //       if (err) {
+    //         console.log('There was an error uploading your file: ', err);
+    //         return false;
+    //       }
+    //       console.log('Successfully uploaded file.', data);
+    //       return true;
+    //     });
+    // }
+
+    // function uploadSampleFile (event) {
+    //     var progressDiv = document.getElementById("myProgress");
+    //     progressDiv.style.display="block";
+    //     var progressBar = document.getElementById("myBar");
+    //     file = document.getElementById("myFile").files[0];
+    //     folderName = "Document/";
+    //     uniqueFileName = 'SampleFile'; 
+    //     let fileUpload = {
+    //       id: "",
+    //       name: file.name,
+    //       nameUpload: uniqueFileName,
+    //       size: file.size,
+    //       type: "",
+    //       timeReference: 'Unknown',
+    //       progressStatus: 0,
+    //       displayName: file.name,
+    //       status: 'Uploading..',
+    //     }
+    //     uploadfile(uniqueFileName, file, folderName)
+    //       .on('httpUploadProgress', function(progress) {
+    //         let progressPercentage = Math.round(progress.loaded / progress.total * 100);
+    //         console.log(progressPercentage);
+    //         progressBar.style.width = progressPercentage + "%";
+    //         if (progressPercentage < 100) {
+    //           fileUpload.progressStatus = progressPercentage;
      
-            } else if (progressPercentage == 100) {
-              fileUpload.progressStatus = progressPercentage;
+    //         } else if (progressPercentage == 100) {
+    //           fileUpload.progressStatus = progressPercentage;
      
-              fileUpload.status = "Uploaded";
-            }
-          })
-    }
+    //           fileUpload.status = "Uploaded";
+    //         }
+    //       })
+    // }
 
     return(
         <>
@@ -75,16 +96,18 @@ const UploadDocs = () => {
                     <BirthrateGDPUScsv margin="20px"  />
                     {/* <Component41 /> */}
                     {/* <input type="file" name="file" ref={uploadRef} onChange={UploadFile} /> */}
-                    <input type="file" id="myFile" size="50" onchange="uploadSampleFile()" />   
-                    <div id="myProgress" style="display:none;">      
+                    <input type="file" onChange={handleFileInput}/>
+                    <br></br>
+                    <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
+                    {/* <img src={file} alt="" style={{ width: "300px", height: "100px" }} /> */}
+                    {/* <div id="myProgress" style="display:none;">      
                         <div id="myBar"></div>    
-                    </div>  
-                    <label>
+                    </div>   */}
+                    {/* <label>
                     File progress: <progress ref={progressRef} value="0" max="100" />
                     </label>
                     <p ref={statusRef}></p>
-                    <p ref={loadTotalRef}></p>
-                    {/* <img src={file} alt="" style={{ width: "300px", height: "100px" }} /> */}
+                    <p ref={loadTotalRef}></p> */}
             </div>
             {/* <div style={{width: '50%'}}>
                 <EnrollmentCountscsv margin="auto" />
