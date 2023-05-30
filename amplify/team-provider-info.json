@@ -17,6 +17,9 @@
       },
       "api": {
         "HigleyUI": {}
+      },
+      "storage": {
+        "higleyampstorage": {}
       }
     }
   }
