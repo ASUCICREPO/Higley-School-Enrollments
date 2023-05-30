@@ -10,6 +10,11 @@
       "StackName": "amplify-higleyui-staging-195619",
       "StackId": "arn:aws:cloudformation:us-east-1:618789875318:stack/amplify-higleyui-staging-195619/95d70030-e07e-11ed-a9d0-0e6fedf53be9",
       "AmplifyAppId": "d2j49hvfujue5k"
+    },
+    "categories": {
+      "auth": {
+        "higleycognito": {}
+      }
     }
   }
 }
