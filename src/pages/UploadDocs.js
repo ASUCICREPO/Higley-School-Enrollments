@@ -10,32 +10,33 @@ import { BirthrateGDPUScsv, EnrollmentGradescsv, Component56, EnrollmentCountscs
 window.Buffer = window.Buffer || require("buffer").Buffer;
 const UploadDocs = () => {
     const [selectedFile, setSelectedFile] = useState(null);
-    const hiddenFileInput = React.useRef(null);    const navigate = useNavigate();
+    const hiddenFileInput = React.useRef(null);
+    const navigate = useNavigate();
     function handleContinue(event) {
         navigate('/thankyou');
     }
 
-    const [key, setKey] = useState("");
+    // const [key, setKey] = useState("");
 
-    const progressCallback = (progress) => {
-        const progressInPercentage = Math.round(
-          (progress.loaded / progress.total) * 100
-        );
-        console.log(`Progress: ${progressInPercentage}%`);
-    };
+    // const progressCallback = (progress) => {
+    //     const progressInPercentage = Math.round(
+    //       (progress.loaded / progress.total) * 100
+    //     );
+    //     console.log(`Progress: ${progressInPercentage}%`);
+    // };
     
-    const uploaddocFile = async (file) => {
-        try {
-            const result = await Storage.put(file.name, file, {
-                contentType: file.type,
-                progressCallback,
-            });
-            console.log(result);
-            setKey(result.key);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    // const uploaddocFile = async (file) => {
+    //     try {
+    //         const result = await Storage.put(file.name, file, {
+    //             contentType: file.type,
+    //             progressCallback,
+    //         });
+    //         console.log(result);
+    //         setKey(result.key);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     const config = {
         bucketName: "higleysampleimput",
@@ -45,23 +46,35 @@ const UploadDocs = () => {
         s3Url: 'https://higleysampleimput.s3.amazonaws.com', /* without the suffix zone added */
     };
 
-    const handleFileInput = (e) => {
-        setSelectedFile(e.target.files[0]);
-        var x = document.getElementById('upload-input');
-        x.style.visibility = 'collapse';
-        document.getElementById('fileName').innerHTML = x.value.split('\\').pop();
-    }
-    
-    const handleClick = event => {
-        hiddenFileInput.current.click();
-    };
     const uploadFile = async (file) => {
+        console.log(selectedFile);
+
         const ReactS3Client = new S3(config);
         ReactS3Client
             .uploadFile(file, file.name)
             .then(data => console.log(data.location))
             .catch(err => console.error(err))
     }
+
+    const handlebirthFileInput = (e) => {
+        setSelectedFile(e.target.files[0]);
+        var x = document.getElementById('upload-input');
+        x.style.visibility = 'collapse';
+        document.getElementById('BirthratefileName').innerHTML = x.value.split('\\').pop();
+        console.log(document.getElementById('BirthratefileName').innerHTML);
+    }
+    
+    const handleenrollFileInput = (e) => {
+        setSelectedFile(e.target.files[0]);
+        var x = document.getElementById('upload-input');
+        x.style.visibility = 'collapse';
+        document.getElementById('EnrollfileName').innerHTML = x.value.split('\\').pop();
+    }
+
+    const handleClick = event => {
+        hiddenFileInput.current.click();
+    };
+
 
 
     // var bucket = new AWS.S3({
@@ -128,7 +141,7 @@ const UploadDocs = () => {
         <>
             {/* <h1 align='center' style={{ padding: '40px', fontFamily: 'Inter', fontSize: "20px", fontWeight: "400"}}>Upload Raw Data</h1> */}
             <Uploadfiles margin="20px" />
-            <div style={{display: 'flex', width: '50%'}}>
+            {/* <div style={{display: 'flex', width: '50%'}}>
                 <label htmlFor="f">
                     <input
                         type="file"
@@ -139,93 +152,91 @@ const UploadDocs = () => {
                     />
                     <div>Pick a File to Upload</div>
                 </label>
-                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
-            </div>
-            {/* <h2 style={{width: '100%', textAlign: 'center', marginTop: '60px', paddingRight: '50px'}}>Upload Raw Data</h2> */}
-            {/* <div style={{display: 'flex', width: '50%'}}>
+            </div> */}
+            <div style={{display: 'flex', width: '50%'}}>
                     <BirthrateGDPUScsv margin="20px"  />
                     <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
-                    <span id="fileName" style={{margin: '20px'}}></span>
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handlebirthFileInput} required/>
+                    <span id="BirthratefileName" style={{margin: '20px'}}></span>
                     <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <EnrollmentCountscsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
-                    <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    <Uploadicon margin="20px" />
+                    <input type="file" id="upload-input" hidden required/>
+                    <span id="EnrollfileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <EnrollmentGradescsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" id="upload-input" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <HousingPopulationcsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" id="upload-input" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <LandDevelopmentscsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <SchoolLunchcsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <PersonAddressHistorycsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <StudentActivitiescsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <StudentAttendancecsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon  margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <StudentBenchmarkscsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <StudentDemographicscsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                     <StudentEnrollmentscsv margin="20px"  />
-                    <Uploadicon onClick={handleClick} margin="20px" />
-                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <Uploadicon margin="20px" />
+                    <input type="file" hidden required/>
                     <span id="fileName" style={{margin: '20px'}}></span>
-                    <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button>
-            </div> */}
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
             <Component56 width="50%"  margin="20px" onClick={handleContinue}/>
         </>
     )
