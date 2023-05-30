@@ -12,22 +12,23 @@ export default function Component35(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="500px"
+      width="80%"
       height="140px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      margin="auto"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "Component35")}
       {...rest}
     >
       <View
-        width="500px"
+        width="100%"
         height="50px"
         display="block"
-        gap="unset"
+        gap="unset" 
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
@@ -40,9 +41,34 @@ export default function Component35(props) {
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
         {...getOverrideProps(overrides, "Rectangle 45")}
-      ></View>
+      >
+        <Text
+          fontFamily="Inter"
+          fontSize="20px"
+          fontWeight="400"
+          color="rgba(0,0,0,1)"
+          lineHeight="24.204544067382812px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="133px"
+          height="31px"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          // top="6.43%"
+          // bottom="71.43%"
+          // left="2.8%"
+          // right="70.6%"
+          padding="10px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Username"
+          {...getOverrideProps(overrides, "Username")}
+        ></Text>
+      </View>
       <View
-        width="500px"
+        width="100%"
         height="50px"
         display="block"
         gap="unset"
@@ -58,55 +84,33 @@ export default function Component35(props) {
         padding="0px 0px 0px 0px"
         backgroundColor="rgba(255,255,255,1)"
         {...getOverrideProps(overrides, "Rectangle 46")}
-      ></View>
-      <Text
-        fontFamily="Inter"
-        fontSize="20px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="24.204544067382812px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        width="133px"
-        height="31px"
-        gap="unset"
-        alignItems="unset"
-        position="absolute"
-        top="6.43%"
-        bottom="71.43%"
-        left="2.8%"
-        right="70.6%"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Username"
-        {...getOverrideProps(overrides, "Username")}
-      ></Text>
-      <Text
-        fontFamily="Inter"
-        fontSize="20px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="24.204544067382812px"
-        textAlign="left"
-        display="block"
-        direction="column"
-        justifyContent="unset"
-        width="133px"
-        height="31px"
-        gap="unset"
-        alignItems="unset"
-        position="absolute"
-        top="70.71%"
-        bottom="7.14%"
-        left="2.8%"
-        right="70.6%"
-        padding="0px 0px 0px 0px"
-        whiteSpace="pre-wrap"
-        children="Password"
-        {...getOverrideProps(overrides, "Password")}
-      ></Text>
+      >
+        <Text
+          fontFamily="Inter"
+          fontSize="20px"
+          fontWeight="400"
+          color="rgba(0,0,0,1)"
+          lineHeight="24.204544067382812px"
+          textAlign="left"
+          display="block"
+          direction="column"
+          justifyContent="unset"
+          width="133px"
+          height="31px"
+          gap="unset"
+          alignItems="unset"
+          position="absolute"
+          // top="70.71%"
+          // bottom="7.14%"
+          // left="2.8%"
+          // right="70.6%"
+          padding="10px 0px 0px 0px"
+          whiteSpace="pre-wrap"
+          children="Password"
+          {...getOverrideProps(overrides, "Password")}
+        ></Text>
+      </View>
+
     </View>
   );
 }

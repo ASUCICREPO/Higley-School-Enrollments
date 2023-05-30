@@ -5,7 +5,7 @@ import { Component38 } from '../ui-components';
 const ThankyouPage = () => {
     const navigate = useNavigate();
     function handleClick(event) {
-        navigate('/user-details');
+        navigate('/returnuser');
     }
     return(
         <>

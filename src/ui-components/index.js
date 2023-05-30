@@ -53,6 +53,7 @@ export { default as Landdevelopments1csv } from "./Landdevelopments1csv";
 export { default as Component34 } from "./Component34";
 export { default as HigleySchoolDistrict } from "./HigleySchoolDistrict";
 export { default as Enrollmentcounts1csv } from "./Enrollmentcounts1csv";
+export { default as Uploadicon } from "./Uploadicon";
 // export { default as Studentattendancecsv } from "./Studentattendancecsv";
 export { default as Component12 } from "./Component12";
 export { default as Usepreviousprediction } from "./Usepreviousprediction";

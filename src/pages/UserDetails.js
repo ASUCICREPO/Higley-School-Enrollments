@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-import { ClassImage, Component3, Component4, Component5, Component54, FirstTimeuser1 } from '../ui-components';
+import { ClassImage, Component54 } from '../ui-components';
 
 const UserDetails = () => {
     const navigate = useNavigate();

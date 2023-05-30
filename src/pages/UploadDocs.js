@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import S3 from 'react-aws-s3';
+import { useNavigate } from 'react-router-dom';
 
 // var AWS = require("aws-sdk");
-import "./css/UploadDocs.css";
-import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, EnrollmentCountscsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv, Component39, Uploadfiles } from '../ui-components';
+// import "./css/UploadDocs.css";
+import { BirthrateGDPUScsv, EnrollmentGradescsv, Component56, EnrollmentCountscsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv, Component39, Uploadfiles, Uploadicon } from '../ui-components';
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 const UploadDocs = () => {
     const [selectedFile, setSelectedFile] = useState(null);
+    const hiddenFileInput = React.useRef(null);    const navigate = useNavigate();
+    function handleContinue(event) {
+        navigate('/thankyou');
+    }
+
 
     const config = {
         bucketName: "higleysampleimput",
@@ -17,11 +23,16 @@ const UploadDocs = () => {
         s3Url: 'https://higleysampleimput.s3.amazonaws.com', /* without the suffix zone added */
     };
 
-
     const handleFileInput = (e) => {
         setSelectedFile(e.target.files[0]);
+        var x = document.getElementById('upload-input');
+        x.style.visibility = 'collapse';
+        document.getElementById('fileName').innerHTML = x.value.split('\\').pop();
     }
     
+    const handleClick = event => {
+        hiddenFileInput.current.click();
+    };
     const uploadFile = async (file) => {
         const ReactS3Client = new S3(config);
         ReactS3Client
@@ -98,46 +109,89 @@ const UploadDocs = () => {
             {/* <h2 style={{width: '100%', textAlign: 'center', marginTop: '60px', paddingRight: '50px'}}>Upload Raw Data</h2> */}
             <div style={{display: 'flex', width: '50%'}}>
                     <BirthrateGDPUScsv margin="20px"  />
-                    {/* <Component41 /> */}
-                    {/* <input type="file" name="file" ref={uploadRef} onChange={UploadFile} /> */}
-                    <input type="file" onChange={handleFileInput}/>
-                    <br></br>
-                    <button onClick={() => uploadFile(selectedFile)}> Upload to S3</button>
-                    {/* <img src={file} alt="" style={{ width: "300px", height: "100px" }} /> */}
-                    {/* <div id="myProgress" style="display:none;">      
-                        <div id="myBar"></div>    
-                    </div>   */}
-                    {/* <label>
-                    File progress: <progress ref={progressRef} value="0" max="100" />
-                    </label>
-                    <p ref={statusRef}></p>
-                    <p ref={loadTotalRef}></p> */}
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
-            {/* <div style={{width: '50%'}}>
-                <EnrollmentCountscsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <EnrollmentGradescsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <HousingPopulationcsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <LandDevelopmentscsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <SchoolLunchcsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <PersonAddressHistorycsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <StudentActivitiescsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <StudentAttendancecsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <StudentBenchmarkscsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <StudentDemographicscsv margin="auto" />
-                <Component41 marginLeft="260px" />
-                <StudentEnrollmentscsv margin="auto"/>
-                <Component41 marginLeft="260px" />
+            <div style={{display: 'flex', width: '50%'}}>
+                    <EnrollmentCountscsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
             </div>
-            <Component39 width="100%"/> */}
+            <div style={{display: 'flex', width: '50%'}}>
+                    <EnrollmentGradescsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <HousingPopulationcsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <LandDevelopmentscsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <SchoolLunchcsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <PersonAddressHistorycsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <StudentActivitiescsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <StudentAttendancecsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <StudentBenchmarkscsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <StudentDemographicscsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <div style={{display: 'flex', width: '50%'}}>
+                    <StudentEnrollmentscsv margin="20px"  />
+                    <Uploadicon onClick={handleClick} margin="20px" />
+                    <input type="file" id="upload-input" hidden ref={hiddenFileInput} onChange={handleFileInput} required/>
+                    <span id="fileName" style={{margin: '20px'}}></span>
+                    {/* <button onClick={() => uploadFile(selectedFile)} style={{margin: '20px'}}> Upload to S3</button> */}
+            </div>
+            <Component56 width="50%"  margin="20px" onClick={handleContinue}/>
         </>
     )
 
