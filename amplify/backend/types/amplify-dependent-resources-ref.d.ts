@@ -19,7 +19,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "higleycogn": {
+    "higleyampstorage": {
       "BucketName": "string",
       "Region": "string"
     }

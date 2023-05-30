@@ -49,7 +49,7 @@
     }
   },
   "storage": {
-    "higleycogn": {
+    "higleyampstorage": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"

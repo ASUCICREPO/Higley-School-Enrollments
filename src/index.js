@@ -8,7 +8,6 @@ import awsconfig from './aws-exports';
 import "@aws-amplify/ui-react/styles.css";
 import { studioTheme } from "./ui-components";
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ThemeProvider theme={studioTheme}>

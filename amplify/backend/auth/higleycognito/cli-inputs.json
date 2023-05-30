@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "higleycognito_identitypool_32f7dd00",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "higley32f7dd00",
     "userPoolName": "higleyamplifyuserpool",
     "autoVerifiedAttributes": [

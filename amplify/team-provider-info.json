@@ -17,9 +17,6 @@
       },
       "api": {
         "HigleyUI": {}
-      },
-      "storage": {
-        "higleycogn": {}
       }
     }
   }
