@@ -11,6 +11,7 @@ import UploadDocs from "./pages/UploadDocs";
 import ReplaceDocs from "./pages/ReplaceDocs";
 import UsePrev from "./pages/UsePrev";
 import ThankyouPage from "./pages/ThankyouPage";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/user-details" element={<UserDetails />} />
           <Route path="/returnuser" element={<ReturnUser />} />
           <Route path="/uploaddocs" element={<UploadDocs />} />

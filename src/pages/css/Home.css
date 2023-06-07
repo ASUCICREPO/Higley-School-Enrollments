@@ -3,3 +3,40 @@
     height: 450px;
     background-color: rgba(0,39,122,1);
 }
+
+.form-group {
+    font-size: 1.2rem;
+    font-family: 'Inter';
+
+}
+
+.LoginInput {
+	background-color: white;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    display: block;
+    justify-content: center;
+	width: 80%;
+    height: 50px;
+	border: 2px SOLID rgba(0,0,0,1); 
+	border-radius: 10px;
+}
+/*
+button {
+	border-radius: 10px;
+	text-decoration: none;
+    border: 2px SOLID rgba(0,0,0,1); 
+    background-color: rgba(0,39,122,1);
+	color: #FFFFFF;
+	display: block;
+	width: 60%;
+    height: 50px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;
+}
+
+button:hover { 
+    opacity: 0.7; 
+}  */
