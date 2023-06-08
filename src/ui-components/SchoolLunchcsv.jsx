@@ -44,8 +44,8 @@ export default function SchoolLunchcsv(props) {
         right="0%"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="School Lunch (.csv) *"
-        {...getOverrideProps(overrides, "School Lunch (.csv) *")}
+        children="Prediction Dataset (.csv) *"
+        {...getOverrideProps(overrides, "Prediction Dataset (.csv) *")}
       ></Text>
     </View>
   );

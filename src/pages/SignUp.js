@@ -14,8 +14,8 @@ const SignUp = () => {
   const [verifyProcess, setVerifyProcess] = useState(false);
   const [OTP, setOTP] = useState('');
   const PC = {
-    UserPoolId: 'Your user pool id',
-    ClientId: 'Your Client ID'
+    UserPoolId: 'us-east-1_mFug75JqU',
+    ClientId: '3ga8kk0qfkc92ejc1r7l44ftie'
   };
   const UserPool = new CognitoUserPool(PC);
 
@@ -31,7 +31,7 @@ const SignUp = () => {
     UserPool.signUp(username, password, attributeList, null, (err, data) => {
       if (err) {
         console.log(err);
-        alert("Couldn't sign up");
+        document.getElementById("errormessage").innerHTML = err;
       } else {
         console.log(data);
         setVerifyProcess(true);
@@ -50,36 +50,36 @@ const SignUp = () => {
     user.confirmRegistration(OTP, true, (err, data) => {
       if (err) {
         console.log(err);
-        alert("Couldn't verify account");
       } else {
         console.log(data);
-        alert('Account verified successfully');
-        window.location.href = '/';
+        window.location.href = '/user-details';
       }
     });
   };
 
-  const navigate = useNavigate();
-  function handleClick(event) {
-      navigate('/user-details');
-  }
   return (
     <>
       <div id="mysection">
         <div style={{width: '30%', margin: "auto"}}>
-          <h1 align='center' style={{ padding: '50px', fontFamily: 'Inter', fontSize: "32px", fontWeight: "400", color: "rgba(255,255,255,1)"}}>Higley School District Enrollment Predictions Login</h1>
+          <h1 align='center' style={{ padding: '40px', fontFamily: 'Inter', fontSize: "32px", fontWeight: "400", color: "rgba(255,255,255,1)"}}>Higley School District Enrollment Predictions Login</h1>
           <div className="form-group">
+          {verifyProcess == false ? (
             <form onSubmit={onSubmit}>
-              <input class="LoginInput" type="text" placeholder="Username" name="Username" value={username.toLowerCase().trim()} onChange={(event) => setUsername (event.target.value)} required />
-              <input class="LoginInput" type="email" placeholder="Email" name="Email"value={email} onChange={(e) => setEmail(e.target.value)} />
-              <input class="LoginInput" type="password" placeholder="Password" name="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
-              <button type="submit">Submit</button> 
+              <input className="LoginInput" type="text" placeholder="Username" name="Username" value={username.toLowerCase().trim()} onChange={(event) => setUsername (event.target.value)} required />
+              <input className="LoginInput" type="email" placeholder="Email" name="Email"value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input className="LoginInput" type="password" placeholder="Password" name="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
+              {/* <span className="LoginSubmit" id="errormessage" style={{margin: "auto"}} ></span> */}
+              <button className="LoginSubmit" type="submit">Submit</button> 
             </form>
+          ) : (
+            <form onSubmit={verifyAccount}>
+              <input className="LoginInput" type="text" placeholder="OTP" name="OTP"  value={OTP} onChange={(e) => setOTP(e.target.value)} />
+              <button className="LoginSubmit" type="submit">Verify</button>
+            </form>
+          )}
           </div>
-          <Component35 marginTop='20px' />
         </div>
       </div>
-      <Component55 marginTop='60px' onClick={handleClick} />
     </>
   );
 };

@@ -37,7 +37,7 @@ const UploadDocs = () =>  {
     const enrollGradeFileInput = React.useRef(null);
     const housingPopFileInput = React.useRef(null);
     const landDevInput = React.useRef(null);
-    const schoollunchInput = React.useRef(null);
+    const predictionInput = React.useRef(null);
     const personAddHistInput = React.useRef(null);
     const stuActFileInput = React.useRef(null);
     const stuAttendanceInput = React.useRef(null);
@@ -99,8 +99,8 @@ const UploadDocs = () =>  {
     const landDevClick = event => {
         landDevInput.current.click();
     };
-    const schoolLunchClick = event => {
-        schoollunchInput.current.click();
+    const predictioninputClick = event => {
+        predictionInput.current.click();
     };
     const personAddHistClick = event => {
         personAddHistInput.current.click();
@@ -134,22 +134,6 @@ const UploadDocs = () =>  {
                 </div>
             </div>
             <div style={{display: 'flex', width: '50%'}}>
-                <EnrollmentCountscsv margin="20px"  />
-                <Uploadicon onClick={handleenrollClick} margin="20px" />
-                <input type="file" id="enrollmentcountinput" hidden ref={enrollFileInput} onChange={handleFileInput} required/>
-                <span id="enrollmentcountinputfilename" style={{margin: '20px'}}></span>
-                <div id="enrollmentcountinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
-                </div>
-            </div>
-            <div style={{display: 'flex', width: '50%'}}>
-                <EnrollmentGradescsv margin="20px"  />
-                <Uploadicon onClick={handleEnrollGradeClick} margin="20px" />
-                <input type="file" id="enrollmentgradeinput" hidden ref={enrollGradeFileInput} onChange={handleFileInput}  required/>
-                <span id="enrollmentgradeinputfilename" style={{margin: '20px'}}></span>
-                <div id="enrollmentgradeinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
-                </div>
-            </div>
-            <div style={{display: 'flex', width: '50%'}}>
                 <HousingPopulationcsv margin="20px"  />
                 <Uploadicon onClick={housingPopClick} margin="20px" />
                 <input type="file" id="housingpopinput" hidden ref={housingPopFileInput} onChange={handleFileInput}  required/>
@@ -167,10 +151,10 @@ const UploadDocs = () =>  {
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                 <SchoolLunchcsv margin="20px"  />
-                <Uploadicon onClick={schoolLunchClick} margin="20px" />
-                <input type="file" id="schoollunchinput" hidden ref={schoollunchInput} onChange={handleFileInput}  required/>
-                <span id="schoollunchinputfilename" style={{margin: '20px'}}></span>
-                <div id="schoollunchinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
+                <Uploadicon onClick={predictioninputClick} margin="20px" />
+                <input type="file" id="predictioninput" hidden ref={predictionInput} onChange={handleFileInput}  required/>
+                <span id="predictioninputfilename" style={{margin: '20px'}}></span>
+                <div id="predictioninputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
                 </div>
             </div>
             <div style={{display: 'flex', width: '50%'}}>
