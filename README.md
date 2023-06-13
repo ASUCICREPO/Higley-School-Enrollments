@@ -1,9 +1,18 @@
 # Higley
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Project Overview
 
+The Higley Unified School District, one of Arizona's fastest growing school districts, with modest continued growth is a consortium of 16 schools that serve the areas of Gilbert and Queen Creek with more than 13000 students.
+Predicting school enrollment is crucial for Higley when planning for a new school year:
+Plan for resources 
+Hire new teachers
+Build Infrastructure
+If actual enrollments are lesser than projected enrollments 
+Over budgeting
+Wasted resources, Small class size, Layoffs, etc. 
+If actual enrollments are greater than projected enrollments
+Under budgeting
+Not enough resources, Overcrowded class size, etc.
 
 ## Description
 
