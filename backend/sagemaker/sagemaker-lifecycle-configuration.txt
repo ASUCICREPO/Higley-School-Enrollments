@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+echo "SageMaker lifecycle configuration script completed"
+ENVIRONMENT=JupyterSystemEnv
+NOTEBOOK_FILE=/home/ec2-user/SageMaker/bottomup-model.ipynb
+
+source /home/ec2-user/anaconda3/bin/activate "$ENVIRONMENT"
+pip install scikit-learn
+nohup jupyter nbconvert "$NOTEBOOK_FILE" --ExecutePreprocessor.kernel_name=python3 --to notebook --inplace --ExecutePreprocessor.timeout=7200 --execute &
+
+source /home/ec2-user/anaconda3/bin/deactivate
