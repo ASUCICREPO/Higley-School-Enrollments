@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 import "./css/Home.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { CognitoUser, CognitoUserAttribute, CognitoUserPool, AuthenticationDetails } from 'amazon-cognito-identity-js';
 
 import { HigleySchoolDistrictEnrollmentPredictions, HigleyLogin, Component2, Component35, Component55 } from '../ui-components';
@@ -33,13 +35,22 @@ const Home = () => {
     user.authenticateUser(authDetails, {
       onSuccess: (result) => {
         console.log('login success', result);
+        toast.success('Login successful', {
+          position: toast.POSITION.TOP_CENTER
+        });
         window.location.href = '/returnuser';
       },
       onFailure: (err) => {
-        console.log('login failure', err);
+        // console.log('login failure', err);
+        toast.error(`${err}`, {
+          position: toast.POSITION.TOP_CENTER
+        });
       },
       newPasswordRequired: (data) => {
-        console.log('new password required', data);
+        // console.log('new password required', data);
+        toast.error('New password required!', {
+          position: toast.POSITION.TOP_CENTER
+        });
       },
     });
   };
@@ -57,7 +68,8 @@ const Home = () => {
             <form onSubmit={onSubmit}>
               <input className="LoginInput" type="text" placeholder="Username" name="Username" value={username} onChange={(event) => setUsername (event.target.value)} required />
               <input className="LoginInput" type="password" placeholder="Password" name="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
-              <button className="LoginSubmit" type="submit">Submit</button> 
+              <button className="LoginSubmit" type="submit">Submit</button>
+              <ToastContainer /> 
             </form>
           </div>
           <h3 align='center'> Don't have an account? <a href="/SignUp">Sign Up </a></h3>

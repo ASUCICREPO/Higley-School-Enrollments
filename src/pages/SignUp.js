@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./css/Home.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { CognitoUser, CognitoUserAttribute, CognitoUserPool } from 'amazon-cognito-identity-js';
 
@@ -30,12 +32,16 @@ const SignUp = () => {
     );
     UserPool.signUp(username, password, attributeList, null, (err, data) => {
       if (err) {
-        console.log(err);
-        document.getElementById("errormessage").innerHTML = err;
+        // console.log(err);
+        toast.error(`${err}`, {
+          position: toast.POSITION.TOP_CENTER
+        });
       } else {
-        console.log(data);
+        // console.log(data);
+        toast.success('User Signup Successful.', {
+          position: toast.POSITION.TOP_CENTER
+        });
         setVerifyProcess(true);
-        alert('User Added Successfully');
       }
     });
   };
@@ -49,7 +55,11 @@ const SignUp = () => {
     console.log(user);
     user.confirmRegistration(OTP, true, (err, data) => {
       if (err) {
-        console.log(err);
+        // console.log(err);
+        toast.error(`${err}`, {
+          position: toast.POSITION.TOP_CENTER
+        });
+        // alert(err);
       } else {
         console.log(data);
         window.location.href = '/user-details';
@@ -68,7 +78,6 @@ const SignUp = () => {
               <input className="LoginInput" type="text" placeholder="Username" name="Username" value={username.toLowerCase().trim()} onChange={(event) => setUsername (event.target.value)} required />
               <input className="LoginInput" type="email" placeholder="Email" name="Email"value={email} onChange={(e) => setEmail(e.target.value)} />
               <input className="LoginInput" type="password" placeholder="Password" name="Password" value={password} onChange={(event) => setPassword(event.target.value)} required />
-              {/* <span className="LoginSubmit" id="errormessage" style={{margin: "auto"}} ></span> */}
               <button className="LoginSubmit" type="submit">Submit</button> 
             </form>
           ) : (
@@ -77,6 +86,7 @@ const SignUp = () => {
               <button className="LoginSubmit" type="submit">Verify</button>
             </form>
           )}
+          <ToastContainer /> 
           </div>
         </div>
       </div>

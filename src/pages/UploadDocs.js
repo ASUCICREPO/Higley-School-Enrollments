@@ -46,6 +46,8 @@ const UploadDocs = () =>  {
     const stuEnrollInput = React.useRef(null);
     const navigate = useNavigate();
     function handleContinue(event) {
+        const payload = { "dummy": "dummy" };
+        invokeLambdaFunction('trigger-verification-lambda', payload);
         navigate('/thankyou');
     }
     useEffect(() => {
@@ -121,6 +123,16 @@ const UploadDocs = () =>  {
         stuEnrollInput.current.click();
     };
 
+    const invokeLambdaFunction = (functionName, payload) => {
+        console.log("In Lambda func")
+        const lambda = new AWS.Lambda();
+        const params = {
+          FunctionName: functionName,
+          Payload: JSON.stringify(payload),
+        };
+        return lambda.invoke(params).promise();
+      };
+
     return(
         <>
             <Uploadfiles margin="20px" />
@@ -132,6 +144,8 @@ const UploadDocs = () =>  {
                 <div id="birthrateinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
                      {/* <progress id="html" min="0" max="100" value="100"></progress> */}
                 </div>
+                <span id="birthrateinputsuccess" style={{margin: '20px'}}></span>
+
             </div>
             <div style={{display: 'flex', width: '50%'}}>
                 <HousingPopulationcsv margin="20px"  />

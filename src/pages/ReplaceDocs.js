@@ -45,6 +45,8 @@ const ReplaceDocs = () => {
     const stuEnrollInput = React.useRef(null);
     const navigate = useNavigate();
     function handleClick(event) {
+        const payload = { "dummy": 'dummy' };
+        invokeLambdaFunction('trigger-verification-lambda', payload);
         navigate('/thankyou');
     }
     useEffect(() => {
@@ -120,6 +122,16 @@ const ReplaceDocs = () => {
     const stuEnrollClick = event => {
         stuEnrollInput.current.click();
     };
+
+    const invokeLambdaFunction = (functionName, payload) => {
+        console.log("In Lambda func")
+        const lambda = new AWS.Lambda();
+        const params = {
+          FunctionName: functionName,
+          Payload: JSON.stringify(payload),
+        };
+        return lambda.invoke(params).promise();
+      };
 
     return(
         <>
