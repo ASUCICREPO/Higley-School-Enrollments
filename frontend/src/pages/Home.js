@@ -41,7 +41,6 @@ const Home = () => {
         window.location.href = '/returnuser';
       },
       onFailure: (err) => {
-        // console.log('login failure', err);
         toast.error(`${err}`, {
           position: toast.POSITION.TOP_CENTER
         });
@@ -55,9 +54,6 @@ const Home = () => {
     });
   };
 
-  // if(navigate) {
-  //     return <Navigate to="/user-details" />
-  // }
 
   return (
     <>
