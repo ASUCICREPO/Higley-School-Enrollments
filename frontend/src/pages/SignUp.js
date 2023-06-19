@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import "./css/Home.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { CognitoUser, CognitoUserAttribute, CognitoUserPool } from 'amazon-cognito-identity-js';
-
-import { HigleySchoolDistrictEnrollmentPredictions, HigleyLogin, Component2, Component35, Component55 } from '../ui-components';
-// import HigleySchoolDistrictEnrollmentPredictions from "../ui-components";
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -71,9 +67,9 @@ const SignUp = () => {
     <>
       <div id="mysection">
         <div style={{width: '30%', margin: "auto"}}>
-          <h1 align='center' style={{ padding: '40px', fontFamily: 'Inter', fontSize: "32px", fontWeight: "400", color: "rgba(255,255,255,1)"}}>Higley School District Enrollment Predictions Login</h1>
+          <h1 align='center' style={{ padding: '40px', fontFamily: 'Inter', fontSize: "32px", fontWeight: "400", color: "rgba(255,255,255,1)"}}>Higley School District Enrollment Predictions Sign Up</h1>
           <div className="form-group">
-          {verifyProcess == false ? (
+          {verifyProcess === false ? (
             <form onSubmit={onSubmit}>
               <input className="LoginInput" type="text" placeholder="Username" name="Username" value={username.toLowerCase().trim()} onChange={(event) => setUsername (event.target.value)} required />
               <input className="LoginInput" type="email" placeholder="Email" name="Email"value={email} onChange={(e) => setEmail(e.target.value)} />

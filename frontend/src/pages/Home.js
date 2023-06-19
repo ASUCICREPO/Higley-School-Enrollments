@@ -1,12 +1,9 @@
 import React, {useState} from "react";
-import { useNavigate } from 'react-router-dom';
-import { Navigate } from "react-router-dom";
 import "./css/Home.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { CognitoUser, CognitoUserAttribute, CognitoUserPool, AuthenticationDetails } from 'amazon-cognito-identity-js';
+import { CognitoUser, CognitoUserPool, AuthenticationDetails } from 'amazon-cognito-identity-js';
 
-import { HigleySchoolDistrictEnrollmentPredictions, HigleyLogin, Component2, Component35, Component55 } from '../ui-components';
 // import HigleySchoolDistrictEnrollmentPredictions from "../ui-components";
 
 const Home = () => {
