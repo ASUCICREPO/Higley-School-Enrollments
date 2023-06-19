@@ -11,20 +11,21 @@ AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higleampinput195619-staging.s3.amazonaws.com', 
+    s3Url: 'https://higley-input-bucket.s3.amazonaws.com', 
 });
+AWS.config.region = 'us-east-1'
 const config = {
-        bucketName: "higleampinput195619-staging",
+        bucketName: "higley-input-bucket",
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higleampinput195619-staging.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: 'https://higley-input-bucket.s3.amazonaws.com', /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
      
 const params = {
-        Bucket: 'higleampinput195619-staging',
+        Bucket: 'higley-input-bucket',
         Delimiter: '',  
     };
 const ReplaceDocs = () => {
@@ -46,6 +47,8 @@ const ReplaceDocs = () => {
         navigate('/thankyou');
     }
     useEffect(() => {
+        console.log(AWS.config.region)
+        console.log(AWS.config)
         s3.listObjectsV2(params, (err, data) => {
           if (err) {
             console.log(err, err.stack);
@@ -70,6 +73,7 @@ const ReplaceDocs = () => {
         
     const uploadFile = async (file, fileid) => {
             document.getElementById(fileid+"icon").style.display = "flex";
+            console.log(config)
             const ReactS3Client = new S3(config);
             ReactS3Client
                 .uploadFile(file, global[fileid + 'filename'])
