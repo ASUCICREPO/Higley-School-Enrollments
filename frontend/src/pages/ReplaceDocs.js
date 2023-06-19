@@ -6,34 +6,30 @@ import './GlobalVariables';
 
 import { useNavigate } from 'react-router-dom';
 import { Uploadicon, Component56, Uploadfiles } from '../ui-components';
-import { Birthrategdpus1csv, Enrollmentcounts1csv, Enrollmentgrades1csv, Housingpopulation1csv, Landdevelopments1csv, Nounx21478471, Personaddresshistory1csv, Schoollunch1csv, Studentactivities1csv, Studentattendance1csv, Studentbenchmarks1csv, Studentdemographics1csv, Studentenrollments1csv } from '../ui-components';
-import { BirthrateGDPUScsv, EnrollmentGradescsv, Component41, EnrollmentCountscsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv, Component53 } from '../ui-components';
+import { BirthrateGDPUScsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv } from '../ui-components';
 AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higleysampleimput.s3.amazonaws.com', 
+    s3Url: 'https://higley-input-bucket.s3.amazonaws.com', 
 });
 const config = {
-        bucketName: "higleysampleimput",
+        bucketName: "higley-input-bucket",
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higleysampleimput.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: 'https://higley-input-bucket.s3.amazonaws.com', /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
      
 const params = {
-        Bucket: 'higleysampleimput',
+        Bucket: 'higley-input-bucket',
         Delimiter: '',  
     };
 const ReplaceDocs = () => {
     const [listFiles, setListFiles] = useState([]);
-    const [selectedFile, setSelectedFile] = useState(0);
     const birthFileInput = React.useRef(null);
-    const enrollFileInput = React.useRef(null);
-    const enrollGradeFileInput = React.useRef(null);
     const housingPopFileInput = React.useRef(null);
     const landDevInput = React.useRef(null);
     const predictionInput = React.useRef(null);
@@ -63,7 +59,6 @@ const ReplaceDocs = () => {
     }
     
     const handleFileInput = (e) => {
-        //     setSelectedFile(e.target.files[0]);
             console.log(e.target.files[0])    
             console.log(e.target.id + "icon")    
             var x = document.getElementById(e.target.id);
@@ -88,12 +83,6 @@ const ReplaceDocs = () => {
 
     const handlebirthClick = event => {
         birthFileInput.current.click();
-    };
-    const handleenrollClick = event => {
-        enrollFileInput.current.click();
-    };
-    const handleEnrollGradeClick = event => {
-        enrollGradeFileInput.current.click();
     };
     const housingPopClick = event => {
         housingPopFileInput.current.click();

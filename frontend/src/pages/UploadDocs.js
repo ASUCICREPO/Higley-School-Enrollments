@@ -7,34 +7,31 @@ import './GlobalVariables';
 
 import { useNavigate } from 'react-router-dom';
 // var AWS = require("aws-sdk");
-import { BirthrateGDPUScsv, EnrollmentGradescsv, Component56, EnrollmentCountscsv, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv, Uploadfiles, Uploadicon } from '../ui-components';
+import { BirthrateGDPUScsv, Component56, HousingPopulationcsv, LandDevelopmentscsv, PersonAddressHistorycsv, StudentActivitiescsv, StudentAttendancecsv, StudentBenchmarkscsv, StudentDemographicscsv, StudentEnrollmentscsv, SchoolLunchcsv, Uploadfiles, Uploadicon } from '../ui-components';
 window.Buffer = window.Buffer || require("buffer").Buffer;
 AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higleysampleimput.s3.amazonaws.com', 
+    s3Url: 'https://higley-input-bucket.s3.amazonaws.com', 
 });
 const config = {
-        bucketName: "higleysampleimput",
+        bucketName: "higley-input-bucket",
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higleysampleimput.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: 'https://higley-input-bucket.s3.amazonaws.com', /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
      
 const params = {
-        Bucket: 'higleysampleimput',
+        Bucket: 'higley-input-bucket',
         Delimiter: '',  
     };
 const UploadDocs = () =>  {
     const [listFiles, setListFiles] = useState([]);
-    const [selectedFile, setSelectedFile] = useState(0);
     const birthFileInput = React.useRef(null);
-    const enrollFileInput = React.useRef(null);
-    const enrollGradeFileInput = React.useRef(null);
     const housingPopFileInput = React.useRef(null);
     const landDevInput = React.useRef(null);
     const predictionInput = React.useRef(null);
@@ -65,7 +62,6 @@ const UploadDocs = () =>  {
 
     
     const handleFileInput = (e) => {
-        setSelectedFile(e.target.files[0]);
         var x = document.getElementById(e.target.id);
         x.style.visibility = 'collapse';
         document.getElementById(e.target.id + "filename").innerHTML = x.value.split('\\').pop();
@@ -88,12 +84,6 @@ const UploadDocs = () =>  {
     
     const handlebirthClick = event => {
         birthFileInput.current.click();
-    };
-    const handleenrollClick = event => {
-        enrollFileInput.current.click();
-    };
-    const handleEnrollGradeClick = event => {
-        enrollGradeFileInput.current.click();
     };
     const housingPopClick = event => {
         housingPopFileInput.current.click();
