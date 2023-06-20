@@ -67,7 +67,7 @@ const SignUp = () => {
     <>
       <div id="mysection">
         <div style={{width: '30%', margin: "auto"}}>
-          <h1 align='center' style={{ padding: '40px', fontFamily: 'Inter', fontSize: "32px", fontWeight: "400", color: "rgba(255,255,255,1)"}}>Higley School District Enrollment Predictions Sign Up</h1>
+          <h1 align='center' style={{ padding: '30px', fontFamily: 'Inter', fontSize: "32px", fontWeight: "400", color: "rgba(255,255,255,1)"}}>Higley School District Enrollment Predictions Sign Up</h1>
           <div className="form-group">
           {verifyProcess === false ? (
             <form onSubmit={onSubmit}>
