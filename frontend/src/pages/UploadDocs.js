@@ -13,20 +13,20 @@ AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higley-input-bucket.s3.amazonaws.com', 
+    s3Url: 'https://higley-temporary-bucket.s3.amazonaws.com', 
 });
 const config = {
-        bucketName: "higley-input-bucket",
+        bucketName: "higley-temporary-bucket",
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higley-input-bucket.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: 'https://higley-temporary-bucket.s3.amazonaws.com', /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
      
 const params = {
-        Bucket: 'higley-input-bucket',
+        Bucket: 'higley-temporary-bucket',
         Delimiter: '',  
     };
 const UploadDocs = () =>  {
@@ -43,11 +43,14 @@ const UploadDocs = () =>  {
     const stuEnrollInput = React.useRef(null);
     const navigate = useNavigate();
     function handleContinue(event) {
-        const payload = { "dummy": "dummy" };
+        const payload = { "emailID": sessionStorage.getItem('emailID') };
         invokeLambdaFunction('trigger-verification-lambda', payload);
         navigate('/thankyou');
     }
     useEffect(() => {
+        if(!sessionStorage.getItem('access_token')){
+            navigate('/');
+        }
         s3.listObjectsV2(params, (err, data) => {
           if (err) {
             console.log(err, err.stack);
@@ -65,7 +68,7 @@ const UploadDocs = () =>  {
         var x = document.getElementById(e.target.id);
         x.style.visibility = 'collapse';
         document.getElementById(e.target.id + "filename").innerHTML = x.value.split('\\').pop();
-        console.log(document.getElementById(e.target.id + "filename").innerHTML);
+        // console.log(document.getElementById(e.target.id + "filename").innerHTML);
         uploadFile(e.target.files[0], e.target.id)
     }
 
@@ -114,7 +117,6 @@ const UploadDocs = () =>  {
     };
 
     const invokeLambdaFunction = (functionName, payload) => {
-        console.log("In Lambda func")
         const lambda = new AWS.Lambda();
         const params = {
           FunctionName: functionName,

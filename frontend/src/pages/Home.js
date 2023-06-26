@@ -31,7 +31,8 @@ const Home = () => {
  
     user.authenticateUser(authDetails, {
       onSuccess: (result) => {
-        console.log('login success', result);
+        sessionStorage.setItem('emailID', result.idToken.payload.email);
+        sessionStorage.setItem('access_token', result.accessToken.jwtToken);
         toast.success('Login successful', {
           position: toast.POSITION.TOP_CENTER
         });

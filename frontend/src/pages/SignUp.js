@@ -33,7 +33,6 @@ const SignUp = () => {
           position: toast.POSITION.TOP_CENTER
         });
       } else {
-        // console.log(data);
         toast.success('User Signup Successful.', {
           position: toast.POSITION.TOP_CENTER
         });
@@ -48,7 +47,7 @@ const SignUp = () => {
       Username: username,
       Pool: UserPool,
     });
-    console.log(user);
+    // console.log(user);
     user.confirmRegistration(OTP, true, (err, data) => {
       if (err) {
         // console.log(err);
@@ -57,7 +56,9 @@ const SignUp = () => {
         });
         // alert(err);
       } else {
-        console.log(data);
+        // console.log(data.username);
+        sessionStorage.setItem('emailID', email);
+        sessionStorage.setItem('access_token', data.username);
         window.location.href = '/user-details';
       }
     });

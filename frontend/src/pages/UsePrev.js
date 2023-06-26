@@ -7,13 +7,16 @@ const UsePrev = () => {
     const [lastdate, setLastdate] = useState("");
     const navigate = useNavigate();
     useEffect(() => {
+        if(!sessionStorage.getItem('access_token')){
+            navigate('/');
+        }
         fetch('https://higley-input-bucket.s3.amazonaws.com/last_model.txt')
         .then ((response) => response.text())
         .then (data => {
           const d = new Date(Date.parse(data.split('_')[0]));
           var options = { year: 'numeric', month: 'long', day: 'numeric' };
           setLastdate(new Date(d).toLocaleDateString([],options));
-          console.log(data)    
+        //   console.log(data) 
         });
     }, []);
     function handleClick(event) {

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import { ClassImage, Component54 } from '../ui-components';
 
 const UserDetails = () => {
     const navigate = useNavigate();
+    useEffect (() => {
+        if(!sessionStorage.getItem('access_token')){
+            navigate('/');
+        }
+    }, [])
     function handleClick(event) {
         navigate('/uploaddocs');
     }

@@ -15,11 +15,11 @@ AWS.config.update({
 });
 AWS.config.region = 'us-east-1'
 const config = {
-        bucketName: "higley-input-bucket",
+        bucketName: "higley-temporary-bucket",
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higley-input-bucket.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: 'https://higley-temporary-bucket.s3.amazonaws.com', /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
@@ -42,13 +42,14 @@ const ReplaceDocs = () => {
     const stuEnrollInput = React.useRef(null);
     const navigate = useNavigate();
     function handleClick(event) {
-        const payload = { "dummy": 'dummy' };
+        const payload = { "emailID": sessionStorage.getItem('emailID') };
         invokeLambdaFunction('trigger-verification-lambda', payload);
         navigate('/thankyou');
     }
     useEffect(() => {
-        console.log(AWS.config.region)
-        console.log(AWS.config)
+        if(!sessionStorage.getItem('access_token')){
+            navigate('/');
+        }
         s3.listObjectsV2(params, (err, data) => {
           if (err) {
             console.log(err, err.stack);
@@ -62,18 +63,16 @@ const ReplaceDocs = () => {
     }
     
     const handleFileInput = (e) => {
-            console.log(e.target.files[0])    
-            console.log(e.target.id + "icon")    
+            // console.log(e.target.files[0])    
             var x = document.getElementById(e.target.id);
             x.style.visibility = 'collapse';
             document.getElementById(e.target.id + "filename").innerHTML = x.value.split('\\').pop();
-            console.log(document.getElementById(e.target.id + "filename").innerHTML);
+            // console.log(document.getElementById(e.target.id + "filename").innerHTML);
             uploadFile(e.target.files[0], e.target.id)
         }
         
     const uploadFile = async (file, fileid) => {
             document.getElementById(fileid+"icon").style.display = "flex";
-            console.log(config)
             const ReactS3Client = new S3(config);
             ReactS3Client
                 .uploadFile(file, global[fileid + 'filename'])
@@ -117,7 +116,6 @@ const ReplaceDocs = () => {
     };
 
     const invokeLambdaFunction = (functionName, payload) => {
-        console.log("In Lambda func")
         const lambda = new AWS.Lambda();
         const params = {
           FunctionName: functionName,
