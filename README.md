@@ -1,5 +1,3 @@
-![image](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/4b2cd151-29c8-492b-8abc-58dec16d651a)# Higley
-
 ## Project Overview
 
 The Higley Unified School District, one of Arizona's fastest growing school districts, with modest continued growth is a consortium of 16 schools that serve the areas of Gilbert and Queen Creek with more than 13000 students.
@@ -35,7 +33,11 @@ By leveraging this state-of-the-art solution, Higley Unified School District can
 
 ## High Level Architecture
 
+![high_level_architecture](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/568690b2-21cd-4ca2-ad0c-c7fbc7cd9373)
+
 ## Technical Architecture
+
+![technical_architecture](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/22b9f22b-a6b3-4809-88bc-3afbd60f8dac)
 
 ## User Guide / How to use
 
