@@ -29,6 +29,8 @@ def lambda_handler(event, context):
                 return True
             
             # If the job run is still in progress, continue waiting
+            else:
+                continue
             
     try:
         # Iterate over each script and run it in AWS Glue

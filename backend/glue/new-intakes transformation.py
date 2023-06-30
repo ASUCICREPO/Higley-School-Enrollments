@@ -8,16 +8,18 @@ import shutil
 import pandas as pd
 import copy
 
-# Specify the S3 bucket name and file names
+# Set up AWS S3 client and bucket name
 bucket_name = 'higley-input-bucket'
 file_name = 'student_enrollments.csv'
 non_nda_filename = 'non_nda_dataset.csv'
 
-# Create an S3 client
+
 s3_client = boto3.client('s3')
 
 def download_file(file_name):
-    # Download the file from the S3 bucket and save it to a local path
+    """
+    Download file from AWS S3 bucket
+    """
     try:
         path = '/tmp/' + file_name
         s3_client.download_file(bucket_name, file_name, path)
@@ -28,11 +30,11 @@ def download_file(file_name):
         else:
             raise
 
-# Download the enrollment file and non-nda file
+# Download required files
 files_path = download_file(file_name)
 non_nda_files_path = download_file(non_nda_filename)
 
-# New Intakes by School
+# Process student enrollments
 target_file = 'new_intakes_by_school_raw.csv'
 enrollment = pd.read_csv(files_path)
 years = {}
@@ -56,6 +58,7 @@ for index, row in enrollment.iterrows():
         enrollment_data['GRADE'].append(grade)
 enrollment_data = pd.DataFrame(enrollment_data)
 student_data = {}
+# Extract relevant data from student enrollments
 for index, row in enrollment_data.iterrows():
     student_name = enrollment_data['STUDENT_PERSON_GU'][index]
     year = enrollment_data['SCHOOL_YEAR'][index]
@@ -96,6 +99,7 @@ print(minimum_year, maximum_year)
 years_list = list(range(minimum_year + 1, maximum_year + 1))
 grades = ['KG', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 result = {}
+# Initialize result dictionary
 for year in years_list:
     for grade in grades:
         for school in school_list:
@@ -105,6 +109,7 @@ for year in years_list:
                 result[year][grade] = {}
             if school not in result[year][grade]:
                 result[year][grade][school] = 0
+# Calculate new intakes by school
 for current_year in range(minimum_year + 1, maximum_year + 1):
     for current_grade in student_data[current_year]:
         for current_school in student_data[current_year][current_grade]:
@@ -121,6 +126,7 @@ new_result['Year'] = []
 new_result['Grade'] = []
 new_result['School'] = []
 new_result['New_Intake'] = []
+# Prepare new result dictionary for output
 for year in years_list:
     for grade in grades:
         for school in school_list:
@@ -129,6 +135,7 @@ for year in years_list:
             new_result['School'].append(school)
             new_result['New_Intake'].append(result[year][grade][school])
 df = pd.DataFrame(new_result)
+# Prepare modelling data for correlation analysis
 modelling_data = pd.read_csv(non_nda_files_path)
 correlation_matrix = modelling_data.corr()
 column_of_interest = 'Enrollments_Count'
@@ -144,6 +151,7 @@ s3_client.upload_file(target_path, bucket_name, target_file)
 target_file = 'new_intakes_raw.csv'
 enrollment_data = copy.deepcopy(enrollment)
 student_transfers = {}
+# Process student transfers
 for index, row in enrollment_data.iterrows():
     year = enrollment_data['SCHOOL_YEAR'][index]
     student_name = enrollment_data['STUDENT_PERSON_GU'][index]
@@ -191,6 +199,8 @@ transfer_df = transfer_df.reset_index()
 intakes_list = []
 dropouts_list = []
 repeat_list = []
+
+# Calculate overall transfer statistics
 for index, row in transfer_df.iterrows():
     intakes = 0
     dropouts = 0

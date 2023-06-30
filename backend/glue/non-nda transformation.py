@@ -65,17 +65,11 @@ land_final_df = pd.DataFrame(list(d.items()), columns=['Year', 'Developments'])
 files_path = download_file(census_file)
 census_df = pd.read_csv(files_path)
 census_df.fillna(0, inplace=True)
-def convert(x):
-    return int(x)
-census_df['Year'] = census_df['Year'].apply(convert)
 
 # Housing Transformation
 files_path = download_file(housing_file)
 housing_population = pd.read_csv(files_path)
 housing_population.fillna(0, inplace=True)
-def convert(x):
-    return int(x)
-housing_population['Year'] = housing_population['Year'].apply(convert)
 
 # Enrollment Count Transformation
 files_path = download_file(enrollments_file)

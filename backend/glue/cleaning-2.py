@@ -103,14 +103,12 @@ testing_data['CITY'] = testing_data['CITY'].replace('San Tan Way','San Tan Valle
 testing_data['CITY'] = testing_data['CITY'].replace('San Tan Valley,','San Tan Valley')
 testing_data['CITY'] = testing_data['CITY'].replace('san tan valley','San Tan Valley')
 
-
 testing_data['CITY'] = testing_data['CITY'].replace('MESA','Mesa')
 testing_data['CITY'] = testing_data['CITY'].replace('mesa','Mesa')
 
 testing_data['CITY'] = testing_data['CITY'].replace('Scottdale','Scottsdale')
 
 testing_data['CITY'] = testing_data['CITY'].replace('Cold Canyon','Gold Canyon')
-
 
 #consider only the top 4 city counts and occurances
 top_values=list(testing_data['CITY'].value_counts().nlargest(4).index)
