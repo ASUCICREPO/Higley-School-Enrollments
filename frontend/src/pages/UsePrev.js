@@ -1,19 +1,20 @@
 import React, { useState, useEffect }  from "react";
 import { useNavigate } from 'react-router-dom';
 import AWS from 'aws-sdk';
+import './GlobalVariables';
 
 import { Component36, Component37 } from '../ui-components';
 AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higley-input-bucket.s3.amazonaws.com', 
+    s3Url: global.S3Url, 
 });
 AWS.config.region = 'us-east-1'
 const s3 = new AWS.S3();
      
 const params = {
-        Bucket: 'higley-input-bucket',
+        Bucket: global.S3bucket,
         Delimiter: '',  
     };
 
@@ -43,7 +44,7 @@ const UsePrev = () => {
         navigate('/replacedocs');
     }
     function goToLastPred(event) {
-        window.location.replace('https://us-east-1.quicksight.aws.amazon.com/sn/dashboards/0f8fe8d0-4e14-45de-bb20-38093ce975bc')
+        window.location.replace(global.quicksightdashboardlink)
     }
     return( 
         <>

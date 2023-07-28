@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./css/Home.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './GlobalVariables';
 
 import { CognitoUser, CognitoUserAttribute, CognitoUserPool } from 'amazon-cognito-identity-js';
 
@@ -12,8 +13,8 @@ const SignUp = () => {
   const [verifyProcess, setVerifyProcess] = useState(false);
   const [OTP, setOTP] = useState('');
   const PC = {
-    UserPoolId: 'us-east-1_mFug75JqU',
-    ClientId: '3ga8kk0qfkc92ejc1r7l44ftie'
+    UserPoolId: global.cognitoUserPoolId,
+    ClientId: global.cognitoClientId
   };
   const UserPool = new CognitoUserPool(PC);
 

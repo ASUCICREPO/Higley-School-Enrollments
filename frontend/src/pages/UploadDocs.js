@@ -13,20 +13,20 @@ AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higley-temporary-bucket.s3.amazonaws.com', 
+    s3Url: global.tempS3Url, 
 });
 const config = {
-        bucketName: "higley-temporary-bucket",
+        bucketName: global.tempS3bucket,
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higley-temporary-bucket.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: global.tempS3Url, /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
      
 const params = {
-        Bucket: 'higley-temporary-bucket',
+        Bucket: global.tempS3bucket,
         Delimiter: '',  
     };
 const UploadDocs = () =>  {
@@ -76,7 +76,7 @@ const UploadDocs = () =>  {
         document.getElementById(fileid+"icon").style.display = "flex";
         const ReactS3Client = new S3(config);
         ReactS3Client
-            .uploadFile(file, global[fileid + 'filename'])
+            .uploadFile(file, global.filenames[fileid + 'filename'])
             .then((data) => {
                 console.log(data.location)
             })

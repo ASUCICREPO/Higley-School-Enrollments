@@ -3,6 +3,7 @@ import "./css/Home.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CognitoUser, CognitoUserPool, AuthenticationDetails } from 'amazon-cognito-identity-js';
+import './GlobalVariables';
 
 // import HigleySchoolDistrictEnrollmentPredictions from "../ui-components";
 
@@ -11,8 +12,8 @@ const Home = () => {
   const [password, setPassword] = useState('');
 
   const PC = {
-    UserPoolId: 'us-east-1_mFug75JqU',
-    ClientId: '3ga8kk0qfkc92ejc1r7l44ftie'
+    UserPoolId: global.cognitoUserPoolId,
+    ClientId: global.cognitoClientId
   };
 
   const UserPool = new CognitoUserPool(PC);

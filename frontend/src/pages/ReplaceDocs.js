@@ -11,21 +11,21 @@ AWS.config.update({
     accessKeyId: process.env.REACT_APP_ACCESS_ID,
     secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     region: process.env.REACT_APP_REGION,
-    s3Url: 'https://higley-input-bucket.s3.amazonaws.com', 
+    s3Url: global.S3Url, 
 });
 AWS.config.region = 'us-east-1'
 const config = {
-        bucketName: "higley-temporary-bucket",
+        bucketName: global.tempS3bucket,
         region: process.env.REACT_APP_REGION,
         accessKeyId: process.env.REACT_APP_ACCESS_ID,
         secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
-        s3Url: 'https://higley-temporary-bucket.s3.amazonaws.com', /* without the suffix zone added */
+        s3Url: global.tempS3Url, /* without the suffix zone added */
     };
 const s3 = new AWS.S3();
 const arr = [];
      
 const params = {
-        Bucket: 'higley-input-bucket',
+        Bucket: global.S3bucket,
         Delimiter: '',  
     };
 const ReplaceDocs = () => {
@@ -54,7 +54,7 @@ const ReplaceDocs = () => {
           if (err) {
             console.log(err, err.stack);
           } else {
-            console.log(data)
+            // console.log(data)
             setListFiles(data.Contents);
           }
         });
@@ -76,7 +76,7 @@ const ReplaceDocs = () => {
             document.getElementById(fileid+"icon").style.display = "flex";
             const ReactS3Client = new S3(config);
             ReactS3Client
-                .uploadFile(file, global[fileid + 'filename'])
+                .uploadFile(file, global.filenames[fileid + 'filename'])
                 .then((data) => {
                         console.log(data.location)
                 })
@@ -132,8 +132,8 @@ const ReplaceDocs = () => {
                 <BirthrateGDPUScsv margin="20px"  />
                 <Uploadicon onClick={handlebirthClick} margin="20px" />
                 <input type="file" id="birthrateinput" hidden ref={birthFileInput} onChange={handleFileInput} required/>
-                {arr.includes(global["birthrateinputfilename"]) 
-                    ? <span id="birthrateinputfilename" style={{margin: '20px'}}>{global["birthrateinputfilename"]}</span>
+                {arr.includes(global.filenames["birthrateinputfilename"]) 
+                    ? <span id="birthrateinputfilename" style={{margin: '20px'}}>{global.filenames["birthrateinputfilename"]}</span>
                     : <span id="birthrateinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="birthrateinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -144,8 +144,8 @@ const ReplaceDocs = () => {
                     <HousingPopulationcsv margin="20px"  />
                     <Uploadicon onClick={housingPopClick} margin="20px" />
                     <input type="file" id="housingpopinput" hidden ref={housingPopFileInput} onChange={handleFileInput}  required/>
-                    {arr.includes(global["housingpopinputfilename"]) 
-                    ? <span id="housingpopinputfilename" style={{margin: '20px'}}>{global["housingpopinputfilename"]}</span>
+                    {arr.includes(global.filenames["housingpopinputfilename"]) 
+                    ? <span id="housingpopinputfilename" style={{margin: '20px'}}>{global.filenames["housingpopinputfilename"]}</span>
                     : <span id="housingpopinputfilename" style={{margin: '20px'}}></span>
                     }
                 <div id="housingpopinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -155,8 +155,8 @@ const ReplaceDocs = () => {
                 <LandDevelopmentscsv margin="20px"  />
                 <Uploadicon onClick={landDevClick} margin="20px" />
                 <input type="file" id="landdevinput" hidden ref={landDevInput} onChange={handleFileInput}  required/>
-                {arr.includes(global["landdevinputfilename"]) 
-                ? <span id="landdevinputfilename" style={{margin: '20px'}}>{global["landdevinputfilename"]}</span>
+                {arr.includes(global.filenames["landdevinputfilename"]) 
+                ? <span id="landdevinputfilename" style={{margin: '20px'}}>{global.filenames["landdevinputfilename"]}</span>
                 : <span id="landdevinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="landdevinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -166,8 +166,8 @@ const ReplaceDocs = () => {
                 <SchoolLunchcsv margin="20px"  />
                 <Uploadicon onClick={predictioninputClick} margin="20px" />
                 <input type="file" id="predictioninput" hidden ref={predictionInput} onChange={handleFileInput}  required/>
-                {arr.includes(global["predictioninputfilename"]) 
-                ? <span id="predictioninputfilename" style={{margin: '20px'}}>{global["predictioninputfilename"]}</span>
+                {arr.includes(global.filenames["predictioninputfilename"]) 
+                ? <span id="predictioninputfilename" style={{margin: '20px'}}>{global.filenames["predictioninputfilename"]}</span>
                 : <span id="predictioninputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="predictioninputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -177,8 +177,8 @@ const ReplaceDocs = () => {
                 <PersonAddressHistorycsv margin="20px"  />
                 <Uploadicon onClick={personAddHistClick} margin="20px" />
                 <input type="file" id="personaddhistinput" hidden ref={personAddHistInput} onChange={handleFileInput}  required/>
-                {arr.includes(global["personaddhistinputfilename"]) 
-                ? <span id="personaddhistinputfilename" style={{margin: '20px'}}>{global["personaddhistinputfilename"]}</span>
+                {arr.includes(global.filenames["personaddhistinputfilename"]) 
+                ? <span id="personaddhistinputfilename" style={{margin: '20px'}}>{global.filenames["personaddhistinputfilename"]}</span>
                 : <span id="personaddhistinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="personaddhistinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -189,8 +189,8 @@ const ReplaceDocs = () => {
                 <Uploadicon onClick={stuActClick} margin="20px" />
                 <input type="file" id="stuactivitiesinput" hidden ref={stuActFileInput} onChange={handleFileInput}  required/>
                 
-                {arr.includes(global["stuactivitiesinputfilename"]) 
-                ? <span id="stuactivitiesinputfilename" style={{margin: '20px'}}>{global["stuactivitiesinputfilename"]}</span>
+                {arr.includes(global.filenames["stuactivitiesinputfilename"]) 
+                ? <span id="stuactivitiesinputfilename" style={{margin: '20px'}}>{global.filenames["stuactivitiesinputfilename"]}</span>
                 : <span id="stuactivitiesinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="stuactivitiesinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -201,8 +201,8 @@ const ReplaceDocs = () => {
                 <Uploadicon onClick={stuAttendanceClick} margin="20px" />
                 <input type="file" id="stuattendanceinput" hidden ref={stuAttendanceInput} onChange={handleFileInput}  required/>
                 
-                {arr.includes(global["stuattendanceinputfilename"]) 
-                ? <span id="stuattendanceinputfilename" style={{margin: '20px'}}>{global["stuattendanceinputfilename"]}</span>
+                {arr.includes(global.filenames["stuattendanceinputfilename"]) 
+                ? <span id="stuattendanceinputfilename" style={{margin: '20px'}}>{global.filenames["stuattendanceinputfilename"]}</span>
                 : <span id="stuattendanceinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="stuattendanceinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -212,8 +212,8 @@ const ReplaceDocs = () => {
                 <StudentBenchmarkscsv margin="20px"  />
                 <Uploadicon onClick={stuBenchClick} margin="20px" />
                 <input type="file" id="stubenchinput" hidden ref={stuBenchInput} onChange={handleFileInput}  required/>
-                {arr.includes(global["stubenchinputfilename"]) 
-                ? <span id="stubenchinputfilename" style={{margin: '20px'}}>{global["stubenchinputfilename"]}</span>
+                {arr.includes(global.filenames["stubenchinputfilename"]) 
+                ? <span id="stubenchinputfilename" style={{margin: '20px'}}>{global.filenames["stubenchinputfilename"]}</span>
                 : <span id="stubenchinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="stubenchinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -223,8 +223,8 @@ const ReplaceDocs = () => {
                 <StudentDemographicscsv margin="20px"  />
                 <Uploadicon onClick={stuDemoClick} margin="20px" />
                 <input type="file" id="studemoinput" hidden ref={stuDemoInput} onChange={handleFileInput}  required/>
-                {arr.includes(global["studemoinputfilename"]) 
-                ? <span id="studemoinputfilename" style={{margin: '20px'}}>{global["studemoinputfilename"]}</span>
+                {arr.includes(global.filenames["studemoinputfilename"]) 
+                ? <span id="studemoinputfilename" style={{margin: '20px'}}>{global.filenames["studemoinputfilename"]}</span>
                 : <span id="studemoinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="studemoinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
@@ -234,8 +234,8 @@ const ReplaceDocs = () => {
                 <StudentEnrollmentscsv margin="20px"  />
                 <Uploadicon onClick={stuEnrollClick} margin="20px" />
                 <input type="file" id="stuenrollmentinput" hidden ref={stuEnrollInput} onChange={handleFileInput}  required/>
-                {arr.includes(global["stuenrollmentinputfilename"]) 
-                ? <span id="stuenrollmentinputfilename" style={{margin: '20px'}}>{global["stuenrollmentinputfilename"]}</span>
+                {arr.includes(global.filenames["stuenrollmentinputfilename"]) 
+                ? <span id="stuenrollmentinputfilename" style={{margin: '20px'}}>{global.filenames["stuenrollmentinputfilename"]}</span>
                 : <span id="stuenrollmentinputfilename" style={{margin: '20px'}}></span>
                 }
                 <div id="stuenrollmentinputicon" className="progress-bar html" style={{display: 'none', margin: '20px'}}>
