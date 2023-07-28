@@ -219,6 +219,3 @@ target_file='new_data.csv'
 target_path='/tmp/'+target_file
 testing_data.to_csv(target_path,index=False)
 s3_client.upload_file(target_path, bucket_name, target_file)
-
-
-
