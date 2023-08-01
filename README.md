@@ -32,8 +32,7 @@ The solution includes a state-of-the-art web portal that allows users to effortl
 By leveraging this state-of-the-art solution, Higley Unified School District can effectively optimize their budget and resource allocation while ensuring an optimal learning environment for their students. The affordable cost of $50 per month makes this solution both accessible and cost-effective, providing Higley with a valuable tool for strategic decision-making and efficient management of their educational system.
 
 ## High Level Architecture
-
-![high_level_architecture](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/568690b2-21cd-4ca2-ad0c-c7fbc7cd9373)
+![hla](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/e90964bd-f2da-4910-b352-7965499693e1)
 
 •	At a high level, the Higley Enrollment Prediction system offers users access to a dedicated website, providing two primary use cases: model generation and inference/viewing the result.
 
@@ -47,8 +46,7 @@ By leveraging this state-of-the-art solution, Higley Unified School District can
 
 
 ## Technical Architecture
-
-![technical_architecture](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/22b9f22b-a6b3-4809-88bc-3afbd60f8dac)
+![ta](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/e5210cdc-e9e9-474c-a064-f709abfd1d5b)
 
 •	The technical architecture of the Higley Enrollment Prediction system comprises two main phases: model generation and result inference, each with distinct components and processes.
 
@@ -87,7 +85,8 @@ The Arizona State University Cloud Innovation Center (ASU CIC) collaborates with
 
 ## Project Flow and Approach
 
-![phases](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/ca0fe0ac-2637-4621-8064-e79157b9be87)
+![mlp](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/6e98f865-1a83-4fd0-8143-4c5248cc61ba)
+
 
 In the modern era, where data plays a central role, machine learning has emerged as a potent technique for extracting valuable insights and making accurate predictions from vast and intricate datasets. At the core of this process lies the machine learning pipeline (MLP), which comprises a sequence of interconnected steps designed to convert raw data into a trained and deployed machine learning model. In this presentation, we will delve into the distinct phases of an MLP and underscore their critical importance in constructing resilient and impactful machine learning solutions.
 
@@ -115,7 +114,8 @@ By integrating and pre-processing these diverse datasets, we established a solid
 2.	Modelling:
 
 MLP - Enrollment (Bucket enrollment prediction model)
-![bucket_enrollment_model](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/a7362468-1b5b-4922-a8f9-ec159d1c0832)
+![bepm](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/d680604a-e3d2-4faa-9fd8-2efad05ba7a2)
+
 
 The Modelling phase consists of three key steps: Model Training and Evaluation, Model Optimization and Validation, and Model Deployment and Monitoring.
 
@@ -132,7 +132,8 @@ Once the model is optimized and validated, it is ready for deployment. In our us
 By using this combined approach, we capture the dynamic flow of students within the district, accounting for factors that influence movements and enrollment changes.
 
 Enrollment Prediction Models (integrated view)
-![enrollment_mode](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/dbddb8ec-50af-4afa-a8d3-2dbd504f396d)
+![em](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/ba75b9c0-6fde-4b3b-8e75-01b508f06730)
+
 
 To train the dataset, the XGBoost model is employed. XGBoost is a widely adopted and efficient open-source implementation of the gradient boosted trees algorithm. This algorithm is designed to be flexible, portable, and highly efficient. It combines the estimates of multiple simpler models to accurately predict the target variable in a supervised learning setting.
 
@@ -158,14 +159,17 @@ By sending this email, we ensure that the users are promptly informed about the 
 ## Model Test Results(2023):
 
 ACTUAL SCHOOL DATA FOR 2023:
-![actual_results](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/b3a75457-9d45-431e-b3e8-dbb7fa188995)
+![actual](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/98cd1b92-a8f1-42d0-971e-a8d342460f04)
+
 
 PREDICTED SCHOOL ENROLLMENT FOR 2023:
-![predicted_results](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/6f4b4228-ce20-46d6-93d6-39b8883a3761)
+![predicted](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/ce67189e-af16-4edb-af81-afd0ea714559)
+
 
 ## Model Card
+![mc](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/b357fa44-6405-40b6-be74-949434ba6583)
 
-![model_card](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/e4d1239a-67f2-4994-88e6-eaf1768b9e8b)
+
 
 ### Developers
 
