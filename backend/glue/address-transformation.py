@@ -1,3 +1,7 @@
+# This script transforms student records categorized by years, school, and corresponding addresses lived
+# into a new format where each row represents a student record, and each column within a row
+# corresponds to the start year, end year, address, and zipcode where the specific student resided.
+
 import sys
 import json
 import os
