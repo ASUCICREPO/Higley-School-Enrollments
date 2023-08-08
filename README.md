@@ -46,7 +46,7 @@ By leveraging this state-of-the-art solution, Higley Unified School District can
 
 
 ## Technical Architecture
-![ta](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/e5210cdc-e9e9-474c-a064-f709abfd1d5b)
+![higley architecture - Bottom-up Technical](https://github.com/ASUCICREPO/Higley-School-Enrollments/assets/98139549/d5858c41-a9ec-4767-b2c7-016c9ec3f779)
 
 •	The technical architecture of the Higley Enrollment Prediction system comprises two main phases: model generation and result inference, each with distinct components and processes.
 
