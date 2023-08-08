@@ -1,3 +1,5 @@
+# This lambda function triggers the execution of the 'cleaning-1' Glue job.
+
 import json
 import time
 import boto3
