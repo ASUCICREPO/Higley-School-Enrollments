@@ -1,3 +1,6 @@
+# This lambda function carries out a sequence of Glue transformation jobs as specified below,
+# followed by the activation of another lambda function responsible for initiating Glue cleaning jobs.
+
 import json
 import time
 import boto3
