@@ -1,3 +1,9 @@
+# This script processes student enrollment information structured with the schema:
+# STUDENT_PERSON_GU, SCHOOL, SCHOOL_YEAR, ENTER_DATE, LEAVE_DATE, GRADE, SPED, FRM.
+# The script transforms this data into a new format represented by columns YEAR, FROM, TO, GRADE, and COUNT,
+# which summarizes the count of students who transitioned from one grade to another within the schools
+# during a specific year.
+
 import sys
 import json
 import os
