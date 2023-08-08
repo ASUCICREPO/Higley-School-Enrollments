@@ -1,3 +1,6 @@
+# This script processes non-NDA datasets, performing data cleansing, and integrates information
+# from NDA datasets, including details like school lunches and total enrollments, to create a unified dataset.
+
 import sys
 import json
 import os
