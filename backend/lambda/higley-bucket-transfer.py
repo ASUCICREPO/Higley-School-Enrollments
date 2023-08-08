@@ -1,3 +1,6 @@
+# This lambda function handles the task of removing a file from a temporary bucket upon a trigger event,
+# and subsequently copies the same file to the designated input bucket.
+
 import json
 import boto3
 
