@@ -1,3 +1,7 @@
+# This script transforms student records organized by year, school, and corresponding activities
+# into a new format where each row represents a student record and each column corresponds to a year
+# with the respective student activities taken in that year.
+
 import sys
 import json
 import os
