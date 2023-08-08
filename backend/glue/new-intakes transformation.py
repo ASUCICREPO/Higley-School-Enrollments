@@ -1,3 +1,6 @@
+# This script merges non-NDA data with school and grade information, along with the total count of new admissions
+# for the respective year, resulting in the creation of an integrated dataset.
+
 import sys
 import json
 import os
