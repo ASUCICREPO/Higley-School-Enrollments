@@ -1,3 +1,7 @@
+# This script detects and eliminates duplicate student entries within the dataset, and combines student records.
+# Typically, students who transfer between schools receive new student IDs and are treated as new individuals.
+# However, this script aids in recognizing such student records and consolidating them into a unified entry.
+
 import sys
 import json
 import os
