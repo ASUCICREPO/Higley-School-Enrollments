@@ -1,3 +1,7 @@
+# This lambda function verifies if a model generation process is currently underway,
+# preventing the initiation of another generation, and sends email notifications to the user
+# prior to the commencement of the model generation.
+
 import json
 import boto3
 
