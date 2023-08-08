@@ -1,0 +1,24 @@
+BACKEND:
+
+1. Create higley-temporary-bucket and configure its bucket policy and cors
+2. Create higley-input-bucket and copy 2 empty files current_user.txt, last_model.txt
+3. Create lambda function higley-bucket-transfer that is triggered on upload to higley-temporary-bucket and verify the upload. Replicate its permissions and configurations
+4. Create SES Identity for sender email
+5. Create trigger-verification-lambda and replicate its permissions and configurations. Modify sender email address.
+6. Create higley-transformations-lambda and replicate its permissions and configurations
+7. Create higley-cleaning-lambda and replicate its permissions and configurations
+8. Create glue python etl jobs for 'activities-transformation', 'address-transformation', 'student-enrollments', 'Student-Enrollment-Transformation', 'non-nda transformation', 'new-intakes transformation','cleaning-1' and 'cleaning-2' and provide required permissions to each of them
+9. Create higley-output-bucket. 
+10. Test Data Engineering lifecycle by commenting sagemaker instance on in cleaning-1.Run trigger-verification-lambda passing testing email-id as payload.
+11. Create sagemaker instance Higley-Bottomup(ml.c5.2xlarge) and sagemaker notebook bottomup-model thereby attach the sagemaker configuration sagemaker-lifecycle-configuration. Give necessary permissions to the sagemaker role.
+12. Create lambda function bottomup-prediction and modify sender, aws_account_id details
+13. Create Glue crawlers, databases and tables replicating the existing configurations
+14. Create athena queries over the datasets and store the results in higley-athena-results
+15. Create a quicksight dashboard and create athena query datasets with names total_students, repeating_students and new_intake_students.
+16. Attach the athena datasets to quicksight dashboard
+17. Publish the dashboard and copy the url.
+
+FRONTEND:
+
+1. Make code changes in the Global variables page
+2. Deploy amplify build as per requirement
