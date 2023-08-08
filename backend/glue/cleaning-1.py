@@ -1,3 +1,9 @@
+# This script performs a series of tasks including dataset cleaning, integration, parameter normalization,
+# addition of new parameters, removal of unnecessary parameters, handling of missing values,
+# elimination of outliers and redundant information post integration, attribute management,
+# and reshaping the data into the desired format for modeling purposes.
+# Upon successful execution, it initiates the SageMaker notebook instance for further steps.
+
 import sys
 import json
 import os
