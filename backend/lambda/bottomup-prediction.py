@@ -1,3 +1,8 @@
+# This lambda function operates once the model outcomes have been stored in the output bucket.
+# It processes the output by initiating crawlers to examine the data, followed by updating the databases and tables.
+# Subsequently, an Athena query is executed, and the QuickSight spice data is completely refreshed
+# using the Glue tables through the Athena query engine.
+
 import json
 import boto3
 import logging
